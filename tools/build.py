@@ -29,7 +29,8 @@ def publication(p):
     return f'<article class="publication"><h3>{E(p["title"])}{paper_link}</h3><p>{E(p["authors"])}</p><p class="venue">{venue}</p>'+ (f'<p class="paper-links">{links}</p>' if links else '')+'</article>'
 def news(p):
     date=p.get('news_date','')
-    date_markup=f'<time datetime="{date}">{date.replace("-", ".")}</time>' if re.fullmatch(r'\d{4}-\d{2}(?:-\d{2})?',date) else '<span aria-label="News date not provided">—</span>'
+    months=['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
+    date_markup=f'<time datetime="{date}">{months[int(date[5:7])-1]} {date[:4]}</time>' if re.fullmatch(r'\d{4}-(?:0[1-9]|1[0-2])(?:-\d{2})?',date) else '<span aria-label="News date not provided">—</span>'
     venue=p.get('journal_name') or p['venue'].split(',')[0]
     return f'<article class="news-item"><div class="news-date">{date_markup}</div><p>The paper &quot;<strong>{E(p["title"])}</strong>&quot; is accepted to <strong>{E(venue)}</strong>.</p></article>'
 

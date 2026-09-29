@@ -13,7 +13,7 @@ assert.equal((recent.match(/<article /g) || []).length, 3);
 assert.ok(recent.startsWith('<article class="news-item">'));
 assert.ok(recent.includes('<strong>New paper &lt;test&gt;</strong>'));
 assert.ok(journal.includes(render.publication(fixture)));
-assert.ok(recent.includes('<time datetime="2026-09-29">2026.09.29</time>'));
+assert.ok(recent.includes('<time datetime="2026-09-29">Sep. 2026</time>'));
 assert.ok(recent.includes('is accepted to <strong>Test journal</strong>.'));
 assert.ok(render.news({...fixture, news_date: undefined}).includes('News date not provided'));
 assert.ok(!render.news({...fixture, news_date: undefined}).includes('<time'));
