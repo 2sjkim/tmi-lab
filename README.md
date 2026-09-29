@@ -33,7 +33,9 @@
 
 Journal 외 데이터나 페이지 구성을 수정한 뒤 `python tools/build.py`를 실행해 HTML을 갱신합니다. Python 표준 라이브러리만 필요합니다. `docs` 전체가 실제 배포 파일이며 GitHub Pages에서는 Python이 필요하지 않습니다.
 
-### Journal과 Home 자동 연동
+### Journal과 Home Recent News 자동 연동
+
+Home의 Recent News는 Journal의 최신 3편을 승인 소식 문장으로 표시합니다. 각 논문에 `news_date`를 `"2026-09"` 형식으로 입력하면 왼쪽에 월이 표시됩니다. 사용자 지정 기준: 출판된 논문은 확인된 출판 월, 아직 출판 전으로 검색되지 않는 논문은 소식 등록 당시의 월을 입력합니다. 등록 월은 저장해 두어 다음 달에 자동으로 바뀌지 않게 합니다. 이는 실제 승인 날짜를 뜻하지 않습니다. `news_date_source`에는 `publication_month` 또는 `current_month_at_entry`를 기록합니다. 날짜 누락 시 `—`가 표시됩니다. `journal_name`을 입력하면 뉴스의 저널명으로 사용하고, 생략하면 `venue`의 첫 쉼표 앞부분을 사용합니다. 제목과 저널명은 진한 굵은 글씨로 표시합니다.
 
 `docs/content.json`의 `journal` 목록이 두 페이지의 공통 원본입니다. 새 논문을 해당 연도의 맨 앞에 추가하고 저장소에 반영하면 배포 후 새로고침할 때 Journal과 Home이 함께 갱신됩니다. Home은 최신 연도 순으로 3편을 표시하며, 같은 연도에서는 목록의 입력 순서를 따릅니다. HTML만 직접 수정하면 자동 연동되지 않으므로 논문은 이 공통 목록에서 수정합니다.
 
