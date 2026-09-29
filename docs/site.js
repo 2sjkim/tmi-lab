@@ -12,7 +12,11 @@ if (document.querySelector('.publication-tabs') || /(?:^|\/)patents\.html$/.test
     document.querySelector('.brand')?.focus({preventScroll: true});
     window.scrollTo({top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
   });
+  const updateTopButton = () => { topButton.hidden = window.scrollY <= 0; };
+  updateTopButton();
   document.body.append(topButton);
+  window.addEventListener('scroll', updateTopButton, {passive: true});
+  window.addEventListener('pageshow', updateTopButton);
 }
 toggle?.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') !== 'true';
