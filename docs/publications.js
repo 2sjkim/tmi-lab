@@ -28,8 +28,9 @@
     return '<article class="publication"><h3>' + escape(paper.title) + link + '</h3><p>' + escape(paper.authors) + '</p><p class="venue">' + venue + '</p>' + (otherLinks ? '<p class="paper-links">' + otherLinks + '</p>' : '') + '</article>';
   }
   function news(paper) {
-    const date = /^\d{4}-\d{2}(?:-\d{2})?$/.test(paper.news_date || '') ? paper.news_date : '';
-    const dateMarkup = date ? '<time datetime="' + date + '">' + date.replaceAll('-', '.') + '</time>' : '<span aria-label="News date not provided">—</span>';
+    const date = /^\d{4}-(?:0[1-9]|1[0-2])(?:-\d{2})?$/.test(paper.news_date || '') ? paper.news_date : '';
+    const months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
+    const dateMarkup = date ? '<time datetime="' + date + '">' + months[Number(date.slice(5, 7)) - 1] + ' ' + date.slice(0, 4) + '</time>' : '<span aria-label="News date not provided">—</span>';
     const venue = paper.journal_name || paper.venue.split(',')[0];
     return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>The paper &quot;<strong>' + escape(paper.title) + '</strong>&quot; is accepted to <strong>' + escape(venue) + '</strong>.</p></article>';
   }
