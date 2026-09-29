@@ -1,4 +1,4 @@
-import pathlib,json,html
+import pathlib,json,html,re
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'docs'
 D=json.loads((OUT/'content.json').read_text(encoding='utf-8'))
@@ -27,9 +27,15 @@ def publication(p):
     paper_link=f' <a class="publication-link" href="{E(p["url"],quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="Open paper: {E(p["title"],quote=True)}">{clip}<span>Link</span></a>' if p.get('url') else ''
     links=' '.join(f'<a href="{E(a["url"],quote=True)}">{E(a["text"])}</a>' for a in p['links'])
     return f'<article class="publication"><h3>{E(p["title"])}{paper_link}</h3><p>{E(p["authors"])}</p><p class="venue">{venue}</p>'+ (f'<p class="paper-links">{links}</p>' if links else '')+'</article>'
+def news(p):
+    date=p.get('news_date','')
+    date_markup=f'<time datetime="{date}">{date.replace("-", ".")}</time>' if re.fullmatch(r'\d{4}-\d{2}(?:-\d{2})?',date) else '<span aria-label="News date not provided">—</span>'
+    venue=p.get('journal_name') or p['venue'].split(',')[0]
+    return f'<article class="news-item"><div class="news-date">{date_markup}</div><p>The paper &quot;<strong>{E(p["title"])}</strong>&quot; is accepted to <strong>{E(venue)}</strong>.</p></article>'
+
 home='''<section class="hero"><p class="university">YONSEI</p><h1>Translational Medical <em>Intelligence</em> Lab</h1><p class="subtitle">From medical imaging AI to Translational Medical Intelligence.</p></section><section class="intro"><div class="intro-copy"><p>We develop <strong>trustworthy AI</strong> that advances real-world medical imaging systems, clinical workflows, and translational medical technologies.</p><p><strong>TMI Lab</strong> connects real-world imaging, reliable AI, and clinical translation to create meaningful impact in healthcare.</p><div class="statement">From imaging systems to clinical impact.</div></div><div class="lab-mark"><img src="assets/tmi-logo-intelligence.png" alt="TMI — Translational Medical Intelligence" width="1984" height="800"></div></section>'''
 home+='<section class="section"><div class="section-heading"><h2>Our Approach</h2><a href="research.html">Explore our research</a></div>'+area_grid()+'</section>'
-home+='<section class="section"><div class="section-heading"><h2>Recent Publications</h2><a href="journal.html">All publications</a></div>'+'<div data-recent-publications>'+''.join(publication(p) for p in sorted(D['journal'],key=lambda p:int(p['year']) if p['year'].isdigit() else 0,reverse=True)[:3])+'</div></section>'
+home+='<section class="section"><div class="section-heading"><h2>Recent News</h2><a href="journal.html">All publications</a></div>'+'<div class="news-list" data-recent-news>'+''.join(news(p) for p in sorted(D['journal'],key=lambda p:int(p['year']) if p['year'].isdigit() else 0,reverse=True)[:3])+'</div></section>'
 home+='''<section class="section contact"><div><h2>Contact</h2><h3>Translational Medical Intelligence Lab</h3><p>Department of Artificial Intelligence<br>Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div><h2>Join TMI</h2><p>Build the future of medical imaging with us.<br>We value strong fundamentals, curiosity, and a collaborative attitude.</p><a class="button" href="join.html">Join our research</a></div></section>'''
 page('index.html','Home',home,'Home')
 page('research.html','Research','<section class="section"><p class="eyebrow">Our approach</p><h2>From imaging systems to clinical impact.</h2><p>TMI Lab connects real-world imaging, reliable AI, and clinical translation to create meaningful impact in healthcare.</p>'+area_grid(True)+'</section>','Research',sub='Advancing medical imaging through AI, physics, and clinical translation.')
