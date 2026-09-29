@@ -3,3 +3,5 @@
 .profile-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}.scholar-link{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:#4664B5;font-size:16px;font-weight:500;text-decoration:none}.scholar-link svg{flex:none}.scholar-link:hover{color:#14319C;text-decoration:underline;text-underline-offset:4px}.scholar-link:focus-visible{outline:2px solid #4664B5;outline-offset:4px;border-radius:2px}
 
 .publication-tabs a{font-size:20px;font-weight:700;color:#253456}.publication-tabs a[aria-current=page]{color:#14319C;border-bottom-width:3px}.publication-tabs a:hover{color:#14319C}.publication .venue .publication-distinction{color:#C62828;font-weight:700}
+
+.publication h3 .publication-link{display:inline-flex;align-items:center;gap:4px;color:var(--muted);font-size:14px;font-weight:500;white-space:nowrap;vertical-align:baseline;margin-left:9px;text-decoration:none}.publication-link svg{flex:none;align-self:center}.publication h3 .publication-link:hover{text-decoration:underline;text-underline-offset:3px}

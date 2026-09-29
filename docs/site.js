@@ -6,6 +6,29 @@ toggle?.addEventListener('click', () => {
   toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   nav.classList.toggle('open', open);
 });
+
+// Progressive enhancement: file:// and failed requests retain the static content.
+const recentPublications = document.querySelector('[data-recent-publications]');
+const journalPublications = document.querySelector('[data-journal-publications]');
+if ((recentPublications || journalPublications) && location.protocol !== 'file:') {
+  fetch('content.json', {cache: 'no-store'})
+    .then(response => {
+      if (!response.ok) throw new Error('Journal data unavailable');
+      return response.json();
+    })
+    .then(data => {
+      if (!Array.isArray(data.journal) || !data.journal.every(paper =>
+        paper && ['title', 'authors', 'venue', 'year'].every(key => typeof paper[key] === 'string'))) {
+        throw new Error('Invalid journal data');
+      }
+      if (recentPublications) recentPublications.innerHTML = TMIPublications.recent(data.journal);
+      if (journalPublications) journalPublications.innerHTML = TMIPublications.journal(data.journal);
+      if (location.hash.startsWith('#year-')) {
+        document.getElementById(location.hash.slice(1))?.scrollIntoView();
+      }
+    })
+    .catch(() => { /* Keep the complete pre-rendered publication list. */ });
+}
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && nav?.classList.contains('open')) {
     nav.classList.remove('open');
