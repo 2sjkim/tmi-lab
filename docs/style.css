@@ -15,3 +15,5 @@
 .pub-layout .publication h3{font-size:14px}@media(max-width:720px){.pub-layout .publication h3{font-size:13px}}
 
 .subnav:not(.publication-tabs) a{font-size:18px}
+
+.profile h2{font-size:28px}@media(max-width:720px){.profile h2{font-size:23px}}
