@@ -270,7 +270,9 @@
       "title": "Low-Dose CT Denoising Using a Diffusion Prior via Score Distillation Sampling",
       "authors": "Hojin Jung, Jooho Lee, Jongduk Baek",
       "venue": "Medical Physics, 2026",
-      "links": []
+      "links": [],
+      "news_date": "2026-09",
+      "news_date_source": "current_month_at_entry"
     },
     {
       "year": "2026",
@@ -278,7 +280,9 @@
       "authors": "Junhyun Ahn, Jongduk Baek",
       "venue": "Medical Physics, 2026",
       "links": [],
-      "url": "https://doi.org/10.1002/mp.70604"
+      "url": "https://doi.org/10.1002/mp.70604",
+      "news_date": "2026-08",
+      "news_date_source": "publication_month"
     },
     {
       "year": "2026",
@@ -286,7 +290,9 @@
       "authors": "Jooho Lee, Adam S. Wang, Jongduk Baek",
       "venue": "Physics in Medicine and Biology, 2026",
       "links": [],
-      "url": "https://doi.org/10.1088/1361-6560/ae3b01"
+      "url": "https://doi.org/10.1088/1361-6560/ae3b01",
+      "news_date": "2026-01",
+      "news_date_source": "publication_month"
     },
     {
       "year": "2025",

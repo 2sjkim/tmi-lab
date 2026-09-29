@@ -5,3 +5,5 @@
 .subnav a{font-size:20px;font-weight:700;color:#253456}.subnav a[aria-current=page]{color:#14319C;border-bottom-width:3px}.subnav a:hover{color:#14319C}.publication .venue .publication-distinction{color:#C62828;font-weight:700}
 
 .publication h3 .publication-link{display:inline-flex;align-items:center;gap:4px;color:var(--muted);font-size:14px;font-weight:500;white-space:nowrap;vertical-align:baseline;margin-left:9px;text-decoration:none}.publication-link svg{flex:none;align-self:center}.publication h3 .publication-link:hover{text-decoration:underline;text-underline-offset:3px}
+
+.news-item{display:grid;grid-template-columns:112px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}.news-item:last-child{border-bottom:0}.news-date{color:var(--muted);font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}.news-item p{margin:0;color:var(--muted);font-size:16px;line-height:1.8}.news-item strong{color:var(--ink);font-weight:700}@media(max-width:600px){.news-item{grid-template-columns:1fr;gap:5px}.news-date{font-size:14px}}

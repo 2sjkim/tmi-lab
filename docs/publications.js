@@ -27,14 +27,20 @@
     }).filter(Boolean).join(' ');
     return '<article class="publication"><h3>' + escape(paper.title) + link + '</h3><p>' + escape(paper.authors) + '</p><p class="venue">' + venue + '</p>' + (otherLinks ? '<p class="paper-links">' + otherLinks + '</p>' : '') + '</article>';
   }
-  function recent(records) { return ordered(records).slice(0, 3).map(publication).join(''); }
+  function news(paper) {
+    const date = /^\d{4}-\d{2}(?:-\d{2})?$/.test(paper.news_date || '') ? paper.news_date : '';
+    const dateMarkup = date ? '<time datetime="' + date + '">' + date.replaceAll('-', '.') + '</time>' : '<span aria-label="News date not provided">—</span>';
+    const venue = paper.journal_name || paper.venue.split(',')[0];
+    return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>The paper &quot;<strong>' + escape(paper.title) + '</strong>&quot; is accepted to <strong>' + escape(venue) + '</strong>.</p></article>';
+  }
+  function recent(records) { return ordered(records).slice(0, 3).map(news).join(''); }
   function journal(records) {
     const papers = ordered(records);
     const years = [...new Set(papers.map(p => p.year))];
     const id = year => 'year-' + String(year).replace(/[^a-zA-Z0-9_-]/g, '-');
     return '<nav class="year-nav" aria-label="Publication years">' + years.map(year => '<a href="#' + id(year) + '">' + escape(year) + '</a>').join('') + '</nav><div>' + years.map(year => '<section class="year-group" id="' + id(year) + '"><h2>' + escape(year) + '</h2>' + papers.filter(p => p.year === year).map(publication).join('') + '</section>').join('') + '</div>';
   }
-  const api = {ordered, publication, recent, journal};
+  const api = {ordered, publication, news, recent, journal};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.TMIPublications = api;
 })(typeof window !== 'undefined' ? window : globalThis);
