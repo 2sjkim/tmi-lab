@@ -8,14 +8,11 @@ if (document.querySelector('.publication-tabs')) {
   topButton.setAttribute('aria-label', 'Back to top');
   topButton.title = 'Back to top';
   topButton.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 10 6-6 6 6M12 4v16"/></svg><span>TOP</span>';
-  const updateTopButton = () => { topButton.hidden = window.scrollY < 320; };
   topButton.addEventListener('click', () => {
     document.querySelector('.brand')?.focus({preventScroll: true});
     window.scrollTo({top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
   });
-  updateTopButton();
   document.body.append(topButton);
-  window.addEventListener('scroll', updateTopButton, {passive: true});
 }
 toggle?.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') !== 'true';
