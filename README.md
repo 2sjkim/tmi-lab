@@ -37,9 +37,9 @@
 
 2026-09-29 공개된 https://sites.google.com/view/yonsei-medisyslab/ 의 9개 페이지를 기준으로 이름, 연구 주제, 연락처, 논문, 특허를 보존했습니다. 사진과 로고는 기존 TMI 자료를 로컬 파일로 저장했습니다. 원본에 사진이 없는 Hwanhee Cho와 Eunyoung Ahn은 이니셜로 표시합니다. 본문의 명백한 철자와 대소문자 오류만 정리했습니다.
 
-로고는 원본 그대로이므로 이미지 내부의 “Translational Medical Imaging”과 본문의 “Translational Medical Intelligence”가 서로 다릅니다. 새 명칭의 로고가 있으면 `docs/assets/tmi-logo.png`를 교체하세요.
+로고와 본문의 TMI 명칭은 Translational Medical Intelligence로 통일했습니다. 로고는 `docs/assets/tmi-logo-intelligence.png`이며 사이트 강조색은 #14319C입니다.
 
-https://kaist-cvml.github.io/index.html 의 흰 배경, 간결한 메뉴, 제목 구성, 주황색 강조를 참고했습니다. KAIST의 로고, 인물, 연구 성과는 사용하지 않았습니다.
+https://kaist-cvml.github.io/index.html 의 흰 배경, 간결한 메뉴, 제목 구성, 강조색 배치를 참고했습니다. KAIST의 로고, 인물, 연구 성과는 사용하지 않았습니다.
 
 원본 홈페이지의 특허 번호, 영문 성명 표기, 논문 분류를 그대로 유지했으며 별도의 서지 사실 검증이나 수정은 하지 않았습니다. 예를 들어 원문 Journal에 기재된 ICLR 항목도 해당 분류를 유지합니다.
 
