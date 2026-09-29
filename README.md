@@ -31,7 +31,15 @@
 - 디자인: `docs/style.css`
 - 메뉴 동작: `docs/site.js`
 
-데이터나 페이지 구성을 수정한 뒤 `python tools/build.py`를 실행해 HTML을 갱신합니다. Python 표준 라이브러리만 필요합니다. `docs` 전체가 실제 배포 파일이며 GitHub Pages에서는 Python이 필요하지 않습니다.
+Journal 외 데이터나 페이지 구성을 수정한 뒤 `python tools/build.py`를 실행해 HTML을 갱신합니다. Python 표준 라이브러리만 필요합니다. `docs` 전체가 실제 배포 파일이며 GitHub Pages에서는 Python이 필요하지 않습니다.
+
+### Journal과 Home 자동 연동
+
+`docs/content.json`의 `journal` 목록이 두 페이지의 공통 원본입니다. 새 논문을 해당 연도의 맨 앞에 추가하고 저장소에 반영하면 배포 후 새로고침할 때 Journal과 Home이 함께 갱신됩니다. Home은 최신 연도 순으로 3편을 표시하며, 같은 연도에서는 목록의 입력 순서를 따릅니다. HTML만 직접 수정하면 자동 연동되지 않으므로 논문은 이 공통 목록에서 수정합니다.
+
+항목의 `title`, `authors`, `venue`, `year`, `links`를 입력하고, `url`에 DOI 또는 공식 논문 주소를 넣으면 제목 옆에 클립 아이콘과 Link가 표시됩니다. 예: `"url": "https://doi.org/10.1002/mp.70604"`. `year`는 `"2026"`처럼 문자열로 입력합니다.
+
+온라인 자동 연동에는 빌드가 필요하지 않습니다. `python tools/build.py`를 실행하면 오프라인 및 JavaScript 비활성화 환경용 HTML도 갱신됩니다. 공유 렌더러는 `docs/publications.js`입니다.
 
 ## 자료 기준과 검증
 
