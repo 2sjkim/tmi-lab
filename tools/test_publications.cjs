@@ -1,0 +1,21 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const render = require('../docs/publications.js');
+const papers = JSON.parse(fs.readFileSync(path.join(__dirname, '../docs/content.json'), 'utf8')).journal;
+const original = JSON.stringify(papers);
+const fixture = {title: 'New paper <test>', authors: 'Test Author', venue: "Test journal, Editor's Choice", year: '2027', links: [], url: 'https://example.org/paper'};
+// An added year wins even if an editor appends the record; both views use it.
+const changed = [...papers, fixture];
+const recent = render.recent(changed);
+const journal = render.journal(changed);
+assert.equal((recent.match(/<article /g) || []).length, 3);
+assert.ok(recent.startsWith('<article class="publication"><h3>New paper &lt;test&gt;'));
+assert.ok(journal.includes(render.publication(fixture)));
+assert.ok(recent.includes('href="https://example.org/paper"'));
+assert.ok(recent.includes('publication-distinction'));
+assert.equal(render.ordered([{...fixture, title:'First'}, {...fixture, title:'Second'}])[0].title, 'First');
+assert.ok(!render.publication({...fixture, url:'javascript:alert(1)'}).includes('href='));
+assert.equal(JSON.stringify(papers), original);
+assert.equal((render.journal(papers).match(/class="publication-link"/g)||[]).length, papers.filter(p=>p.url).length);
+console.log('PASS: additions update both views, latest three, stable ordering, links, escaping and distinctions.');
