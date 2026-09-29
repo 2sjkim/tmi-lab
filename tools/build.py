@@ -20,8 +20,11 @@ def area_grid(images=False):
         out+=f'<article>{image}<span class="number">0{n+1}</span><h3>{title}</h3><p>{desc}</p><ul class="bullets">'+''.join(f'<li>{E(p)}</li>' for p in points)+'</ul></article>'
     return out+'</div>'
 def publication(p):
+    venue=E(p['venue'])
+    for label in ["Editor's Choice", 'Oral Presentation']:
+        venue=venue.replace(E(label), '<span class="publication-distinction">'+E(label)+'</span>')
     links=' '.join(f'<a href="{E(a["url"],quote=True)}">{E(a["text"])}</a>' for a in p['links'])
-    return f'<article class="publication"><h3>{E(p["title"])}</h3><p>{E(p["authors"])}</p><p class="venue">{E(p["venue"])}</p>'+ (f'<p class="paper-links">{links}</p>' if links else '')+'</article>'
+    return f'<article class="publication"><h3>{E(p["title"])}</h3><p>{E(p["authors"])}</p><p class="venue">{venue}</p>'+ (f'<p class="paper-links">{links}</p>' if links else '')+'</article>'
 home='''<section class="hero"><p class="university">YONSEI</p><h1>Translational Medical <em>Intelligence</em> Lab</h1><p class="subtitle">From medical imaging AI to Translational Medical Intelligence.</p></section><section class="intro"><div class="intro-copy"><p>We develop <strong>trustworthy AI</strong> that advances real-world medical imaging systems, clinical workflows, and translational medical technologies.</p><p><strong>TMI Lab</strong> connects real-world imaging, reliable AI, and clinical translation to create meaningful impact in healthcare.</p><div class="statement">From imaging systems to clinical impact.</div></div><div class="lab-mark"><img src="assets/tmi-logo-intelligence.png" alt="TMI — Translational Medical Intelligence" width="1984" height="800"></div></section>'''
 home+='<section class="section"><div class="section-heading"><h2>Our Approach</h2><a href="research.html">Explore our research</a></div>'+area_grid()+'</section>'
 home+='<section class="section"><div class="section-heading"><h2>Recent Publications</h2><a href="journal.html">All publications</a></div>'+''.join(publication(p) for p in D['journal'][:3])+'</section>'
@@ -44,7 +47,7 @@ for key,title,desc in [('researchers','Researchers','Researchers advancing medic
     page(key+'.html',title,content,'People',sub=desc)
 for key,title,desc in [('journal','Journal','Research outputs supporting TMI’s translational medical intelligence pipeline.'),('conference','Conference','Selected conference papers and presentations from TMI.')]:
     years=list(dict.fromkeys(p['year'] for p in D[key]))
-    content=tabs(PUBS,key+'.html')+'<div class="pub-layout"><nav class="year-nav" aria-label="Publication years">'+''.join(f'<a href="#year-{y.replace(" ","-")}">{y}</a>' for y in years)+'</nav><div>'
+    content=tabs(PUBS,key+'.html').replace('class="subnav"','class="subnav publication-tabs"')+'<div class="pub-layout"><nav class="year-nav" aria-label="Publication years">'+''.join(f'<a href="#year-{y.replace(" ","-")}">{y}</a>' for y in years)+'</nav><div>'
     for year in years:content+=f'<section class="year-group" id="year-{year.replace(" ","-")}"><h2>{year}</h2>'+''.join(publication(p) for p in D[key] if p['year']==year)+'</section>'
     page(key+'.html',title,content+'</div></div>','Publications',sub=desc)
 page('patents.html','Patents','<section>'+''.join(publication(p) for p in D['patents'])+'</section>','Patents',sub='Innovations and intellectual property developed at TMI.')
