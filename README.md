@@ -9,8 +9,8 @@
 ## GitHub Pages 공개
 
 1. 사용할 GitHub 저장소에 이 폴더의 내용을 업로드합니다.
-2. 저장소의 **Settings → Pages**에서 **Deploy from a branch**를 선택합니다.
-3. 브랜치 `main`, 폴더 `/docs`를 선택하고 저장합니다.
+2. 저장소의 **Settings → Pages**에서 **GitHub Actions**를 선택합니다.
+3. `main`에 저장하면 **Publish lab website**가 날짜 계산, 페이지 생성, 배포를 자동 실행합니다.
 4. Pages 화면에 표시되는 공개 주소를 확인합니다.
 
 사용자/조직 대표 홈페이지는 `계정명.github.io` 저장소를, 일반 프로젝트 홈페이지는 원하는 저장소 이름을 사용하면 됩니다. 모든 내부 경로가 상대경로이므로 두 형태를 모두 지원합니다.
@@ -31,7 +31,7 @@
 - 디자인: `docs/style.css`
 - 메뉴 동작: `docs/site.js`
 
-Journal 외 데이터나 페이지 구성을 수정한 뒤 `python tools/build.py`를 실행해 HTML을 갱신합니다. Python 표준 라이브러리만 필요합니다. `docs` 전체가 실제 배포 파일이며 GitHub Pages에서는 Python이 필요하지 않습니다.
+원본 데이터나 페이지 구성을 수정해 `main`에 저장하면 자동으로 HTML을 생성해 배포합니다. 로컬 미리보기는 `python tools/build.py`로 생성하며 Python 표준 라이브러리만 필요합니다.
 
 ### Automatic Journal and Recent News updates
 
