@@ -8,7 +8,7 @@ def page(filename,title,content,active,sub='',source=None):
     nav=''.join(f'<a href="{url}"'+(' aria-current="page"' if name==active else '')+f'>{name}</a>' for name,url in NAV)
     head='' if filename=='index.html' else f'<div class="page-heading"><h1>{title}</h1><p>{sub}</p></div>'
     output=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} | TMI Lab · Yonsei University</title><meta name="description" content="Translational Medical Intelligence Lab at Yonsei University. Medical imaging, trustworthy AI, computational imaging, and clinical translation."><meta name="theme-color" content="#14319C"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="publications.js" defer></script><script src="site.js" defer></script></head><body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="TMI Lab home"><img src="assets/tmi-logo-intelligence.png" alt="TMI"><span>Yonsei University</span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false">☰</button><nav id="navigation" class="nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{head}{content}</main><footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><h3>TMI Lab</h3><p>Translational Medical Intelligence Laboratory<br>Department of Artificial Intelligence · Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div class="footer-links"><a href="people.html">People</a><a href="journal.html">Publications</a><a href="join.html">Join Us</a></div></div><p class="copyright">© 2026 TMI Lab, Yonsei University.</p></div></footer></body></html>'''
-    output=output.replace('href="style.css"','href="style.css?v=20260930-groups"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
+    output=output.replace('href="style.css"','href="style.css?v=20260930-interests"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
     (OUT/filename).write_text(output,encoding='utf-8')
 def tabs(items,current):return '<nav class="subnav" aria-label="Section navigation">'+''.join(f'<a href="{f}"'+(' aria-current="page"' if f==current else '')+f'>{name}</a>' for name,f in items)+'</nav>'
 PEOPLE=[('Professor','people.html'),('Researchers','researchers.html'),('Alumni','alumni.html')]
@@ -49,13 +49,21 @@ profile+='<section class="section career-section"><h2>Education</h2><ul class="a
 page('people.html','Professor',profile,'People',sub='Leading innovation in medical imaging, AI, and clinical translation.')
 def person(p):
     photo=f'<img src="{p["image"]}" alt="{E(p["name"])}" loading="lazy">' if p['image'] else '<div class="portrait-fallback" aria-hidden="true">'+''.join(w[0] for w in p['name'].split())+'</div>'
-    parts=''.join(f'<p class="'+('role' if n==0 else '')+'">'+(f'<a href="mailto:{E(t)}">{E(t)}</a>' if '@' in t else E(t))+'</p>' for n,t in enumerate(p['details']))
+    parts=''
+    for n,t in enumerate(p['details']):
+        researcher='group' in p
+        if researcher and n==0 and p['name'] not in ['Minah Han','Byeongjoon Kim']:
+            continue
+        text=f'<a href="mailto:{E(t)}">{E(t)}</a>' if '@' in t else E(t)
+        if researcher and n==1:
+            text='<strong class="interest-label">Interest:</strong> '+text
+        parts+='<p class="'+('role' if n==0 else '')+'">'+text+'</p>'
     return f'<article class="person">{photo}<div><h3>{E(p["name"])}</h3>{parts}</div></article>'
 for key,title,desc in [('researchers','Researchers','Researchers advancing medical imaging through artificial intelligence, reconstruction, and computational imaging.'),('alumni','Alumni','Advancing medical imaging and AI beyond TMI.')]:
     members=[p for p in D[key] if p['details'][0]!='Staff'];staff=[p for p in D[key] if p['details'][0]=='Staff']
     content=tabs(PEOPLE,key+'.html')
     if key=='researchers':
-        for group in ['Postdoc','Ph.D. Students','M.S. Students']:
+        for group in ['Postdoc','M.S./Ph.D. Students','Ph.D. Students','M.S. Students']:
             content+=f'<section class="researcher-group"><h2 class="member-group-title">{E(group)}</h2><div class="people-grid">'+''.join(person(p) for p in members if p['group']==group)+'</div></section>'
     else:
         content+='<div class="people-grid">'+''.join(person(p) for p in members)+'</div>'
