@@ -52,11 +52,14 @@ def career_text(text):
 
 def person(p):
     photo=f'<img src="{p["image"]}" alt="{E(p["name"])}" loading="lazy">' if p['image'] else '<div class="portrait-fallback" aria-hidden="true">'+''.join(w[0] for w in p['name'].split())+'</div>'
-    parts=''
+    email=''.join(f'<p class="member-email"><a href="mailto:{E(t)}">{E(t)}</a></p>' for t in p['details'] if '@' in t)
+    parts=email
     if 'appointment' in p:
-        parts='<p class="member-appointment">'+career_text(p['appointment'])+'</p>'
+        parts+='<p class="member-appointment">'+career_text(p['appointment'])+'</p>'
         parts+='<ul class="member-background">'+''.join('<li>'+career_text(t)+'</li>' for t in p['background'])+'</ul>'
     for n,t in enumerate(p['details']):
+        if '@' in t:
+            continue
         researcher='group' in p
         if researcher and n==0:
             continue
