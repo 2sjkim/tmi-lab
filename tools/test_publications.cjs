@@ -10,7 +10,7 @@ const olderPapers = papers.map(p => ({...p, news_date: '2025-01', news_added_at:
 const changed = [...olderPapers, fixture];
 const recent = render.recent(changed);
 const journal = render.journal(changed);
-assert.equal((recent.match(/<article /g) || []).length, 3);
+assert.equal((recent.match(/<article /g) || []).length, 5);
 assert.ok(recent.startsWith('<article class="news-item">'));
 assert.ok(recent.includes('<strong>New paper &lt;test&gt;</strong>'));
 assert.ok(journal.includes(render.publication(fixture, 'J' + changed.length)));
@@ -23,15 +23,24 @@ assert.equal(render.ordered([{...fixture, title:'First'}, {...fixture, title:'Se
 assert.ok(!render.publication({...fixture, url:'javascript:alert(1)'}).includes('href='));
 assert.equal(JSON.stringify(papers), original);
 assert.equal((render.journal(papers).match(/class="publication-link"/g)||[]).length, papers.filter(p=>p.url).length);
-console.log('PASS: additions update both views, latest three, stable ordering, links, escaping and distinctions.');
+console.log('PASS: additions update both views, latest five, stable ordering, links, escaping and distinctions.');
 
 const newlyRegistered = {...fixture, title: 'Newly registered older-year paper', year: '2020', news_date: '2026-10', news_added_at: '2026-10-01T01:00:00+09:00'};
 const registrationNews = render.recent([...olderPapers, newlyRegistered]);
 assert.ok(registrationNews.includes('Oct. 2026'));
 assert.ok(registrationNews.indexOf(newlyRegistered.title) < registrationNews.indexOf(papers[0].title));
-assert.equal((registrationNews.match(/class="news-item"/g)||[]).length, 3);
+assert.equal((registrationNews.match(/class="news-item"/g)||[]).length, 5);
 console.log('PASS: registration order controls recent news.');
 
 const numbers = [...render.journal(changed).matchAll(/<h3>\[J(\d+)\] /g)].map(m => Number(m[1]));
 assert.deepEqual(numbers, changed.map((_,i)=>changed.length-i));
 console.log("PASS: journal numbering stays continuous across years and additions.");
+
+const custom = {news_date:'2026-10', segments:[{text:'Award <test>',bold:true,color:'red',url:'https://example.org/award'}]};
+const combined = render.recent(olderPapers,[custom]);
+assert.equal((combined.match(/class="news-item"/g)||[]).length,5);
+assert.ok(combined.includes('news-award'));
+assert.ok(combined.includes('Award &lt;test&gt;'));
+assert.ok(combined.includes('href="https://example.org/award"'));
+assert.equal((render.recent([], [custom]).match(/class="news-item"/g)||[]).length,1);
+console.log('PASS: custom linked announcements merge with journals within the five-item limit.');

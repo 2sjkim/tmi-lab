@@ -8,7 +8,7 @@ def page(filename,title,content,active,sub='',source=None):
     nav=''.join(f'<a href="{url}"'+(' aria-current="page"' if name==active else '')+f'>{name}</a>' for name,url in NAV)
     head='' if filename=='index.html' else f'<div class="page-heading"><h1>{title}</h1>'+ (f'<p>{sub}</p>' if sub else '')+'</div>'
     output=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} | TMI Lab · Yonsei University</title><meta name="description" content="Translational Medical Intelligence Lab at Yonsei University. Medical imaging, trustworthy AI, computational imaging, and clinical translation."><meta name="theme-color" content="#14319C"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="publications.js" defer></script><script src="site.js" defer></script></head><body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="TMI Lab home"><img src="assets/tmi-logo-intelligence.png" alt="TMI"><span class="university-brand"><img class="university-logo" src="assets/yonsei-wordmark.svg" alt="Yonsei University" width="148" height="44"></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false">☰</button><nav id="navigation" class="nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{head}{content}</main><footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><h3>TMI Lab</h3><p>Translational Medical Intelligence Laboratory<br>Department of Artificial Intelligence · Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div class="footer-links"><a href="people.html">People</a><a href="journal.html">Publications</a><a href="join.html">Join Us</a></div></div><p class="copyright">© 2026 TMI Lab, Yonsei University.</p></div></footer></body></html>'''
-    output=output.replace('href="style.css"','href="style.css?v=20260930-chronological"').replace('src="publications.js"','src="publications.js?v=20260930-chronological"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
+    output=output.replace('href="style.css"','href="style.css?v=20260930-news-five"').replace('src="publications.js"','src="publications.js?v=20260930-news-five"').replace('src="site.js"','src="site.js?v=20260930-news-five"')
     if filename == "index.html":
         output = output.replace('<main id="main" class="wrap">', '<main id="main" class="home-main">')
     (OUT/filename).write_text(output,encoding='utf-8')
@@ -35,11 +35,21 @@ def news(p):
     date=p.get('news_date','')
     months=['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
     date_markup=f'<time datetime="{date}">{months[int(date[5:7])-1]} {date[:4]}</time>' if re.fullmatch(r'\d{4}-(?:0[1-9]|1[0-2])(?:-\d{2})?',date) else '<span aria-label="News date not provided">—</span>'
+    if 'segments' in p:
+        parts=[]
+        for segment in p['segments']:
+            text=E(segment['text'])
+            if segment.get('bold'): text='<strong>'+text+'</strong>'
+            if segment.get('color')=='red': text='<span class="news-award">'+text+'</span>'
+            url=segment.get('url','')
+            if re.match(r'^https?://',url): text='<a href="'+E(url,quote=True)+'" target="_blank" rel="noopener noreferrer">'+text+'</a>'
+            parts.append(text)
+        return f'<article class="news-item"><div class="news-date">{date_markup}</div><p>'+''.join(parts)+'</p></article>'
     venue=p.get('journal_name') or p['venue'].split(',')[0]
     return f'<article class="news-item"><div class="news-date">{date_markup}</div><p>The paper &quot;<strong>{E(p["title"])}</strong>&quot; is accepted to <strong>{E(venue)}</strong>.</p></article>'
 
 home='''<section class="hero"><h1>Translational Medical <em>Intelligence</em> Lab</h1><p class="subtitle">From medical imaging AI to Translational Medical Intelligence</p></section><section class="intro"><div class="intro-copy"><p>We develop <strong>trustworthy AI</strong> that advances real-world medical imaging systems, clinical workflows, and translational medical technologies.</p><p><strong>TMI Lab</strong> connects real-world imaging, reliable AI, and clinical translation to create meaningful impact in healthcare.</p></div><div class="lab-mark"><img src="assets/tmi-logo-intelligence.png" alt="TMI — Translational Medical Intelligence" width="1984" height="800"></div></section>'''
-home+='<section class="section"><div class="section-heading"><h2>Recent News</h2><a href="journal.html">All publications</a></div>'+'<div class="news-list" data-recent-news>'+''.join(news(p) for p in sorted(sorted(D['journal'],key=lambda p:int(p['year']) if p['year'].isdigit() else 0,reverse=True),key=lambda p:p.get('news_added_at') or (p.get('news_date','')[:7]+'-01T00:00:00+09:00' if p.get('news_date') else ''),reverse=True)[:3])+'</div></section>'
+home+='<section class="section"><div class="section-heading"><h2>Recent News</h2><a href="journal.html">All publications</a></div>'+'<div class="news-list" data-recent-news>'+''.join(news(p) for p in sorted(sorted(D['journal']+D.get('news',[]),key=lambda p:int(p.get('year','0')) if p.get('year','0').isdigit() else 0,reverse=True),key=lambda p:p.get('news_added_at') or (p.get('news_date','')[:7]+'-01T00:00:00+09:00' if p.get('news_date') else ''),reverse=True)[:5])+'</div></section>'
 home+='<section class="section"><div class="section-heading"><h2>Our Approach</h2><a href="research.html">Explore our research</a></div>'+area_grid()+'</section>'
 home+='''<section class="section contact"><div><h2>Contact</h2><h3>Translational Medical Intelligence Lab</h3><p>Department of Artificial Intelligence<br>Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div><h2>Join TMI</h2><p>Build the future of medical imaging with us.<br>We value strong fundamentals, curiosity, and a collaborative attitude.</p><a class="button" href="join.html">Join our research</a></div></section>'''
 page('index.html','Home',home,'Home')
