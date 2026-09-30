@@ -29,3 +29,7 @@
 .member-group-title{font-size:27px;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:14px;margin:0 0 30px}.researcher-group .people-grid{margin-bottom:42px}
 
 .person .interest-label{color:#444a52;font-weight:600}
+
+.person .member-appointment{color:#444a52;font-weight:600;margin-bottom:9px}.member-background{margin:0 0 12px;padding-left:16px;color:var(--muted);font-size:14px;line-height:1.55}.member-background li{margin:0 0 6px}.person .career-link{font-size:inherit;color:inherit;overflow-wrap:normal;text-decoration:underline;text-underline-offset:3px}@media(max-width:720px){.member-background{font-size:15px}}
+
+.researcher-group .people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:720px){.researcher-group .people-grid{grid-template-columns:1fr}}

@@ -8,7 +8,12 @@
         "hma90@naver.com"
       ],
       "image": "assets/faa9d8a89d9e6864.png",
-      "group": "Research Associate"
+      "group": "Research Associate",
+      "appointment": "Research Associate (2020.03 - present)",
+      "background": [
+        "Postdoctoral Scholar (2019.03 - 2020.02)",
+        "Ph.D. in Integrated Technology, Yonsei University (2013.09 - 2019.02)"
+      ]
     },
     {
       "name": "Byeongjoon Kim",
@@ -18,7 +23,12 @@
         "bjkimp52014@gmail.com"
       ],
       "image": "assets/c440740ac3cc1e26.png",
-      "group": "Research Associate"
+      "group": "Research Associate",
+      "appointment": "Research Associate (2023.03 - present)",
+      "background": [
+        "Ph.D. in Integrated Technology, Yonsei University (2017.03 - 2023.02)",
+        "B.S. School of Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Hanjoo Jang",
@@ -28,7 +38,12 @@
         "imhanjoo@naver.com"
       ],
       "image": "assets/2ea25866982b46ec.png",
-      "group": "Postdoc"
+      "group": "Postdoc",
+      "appointment": "Postdoctoral Scholar (2024.03 - present)",
+      "background": [
+        "Ph.D. in Integrated Technology, Yonsei University (2018.03 - 2024.02)",
+        "B.S. School of Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Seongjun Kim",
@@ -38,7 +53,12 @@
         "2sjkim@gmail.com"
       ],
       "image": "assets/8c2c257838016e04.png",
-      "group": "Postdoc"
+      "group": "Postdoc",
+      "appointment": "Postdoctoral Scholar (2026.03 - present)",
+      "background": [
+        "Ph.D. in Integrated Technology, Yonsei University (2020.03 - 2026.02)",
+        "B.S. School of Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Junhyun Ahn",
@@ -48,7 +68,11 @@
         "tony1124@naver.com"
       ],
       "image": "assets/f6ede00ad772b8c1.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2020.03 - present)",
+      "background": [
+        "B.S. School of Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Minwoo Yu",
@@ -58,7 +82,12 @@
         "ymw9754@gmail.com"
       ],
       "image": "assets/84608315fa53ba19.png",
-      "group": "Ph.D. Students"
+      "group": "Ph.D. Students",
+      "appointment": "Ph.D. Student (2023.03 - present)",
+      "background": [
+        "Visiting PhD Student at Stanford University with Prof. Adam Wang (25.09 - 26.02)",
+        "B.S./M.S. School Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Jooho Lee",
@@ -68,7 +97,12 @@
         "jooholee@yonsei.ac.kr"
       ],
       "image": "assets/9ef209f54c7db190.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2023.03 - present)",
+      "background": [
+        "Visiting PhD Student at Stanford University with Prof. Adam Wang (24.09 - 25.02)",
+        "B.S. School of Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Hojin Jung",
@@ -78,7 +112,11 @@
         "wjdghwls98@gmail.com"
       ],
       "image": "assets/ca2e55dbbb702be1.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2023.03 - present)",
+      "background": [
+        "B.S. School of Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Yoonha Eo",
@@ -88,7 +126,11 @@
         "yoonhaeo@yonsei.ac.kr"
       ],
       "image": "assets/9dfb85edf8ee5888.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2024.03 - present)",
+      "background": [
+        "B.S. School of Integrated Technology, Yonsei University"
+      ]
     },
     {
       "name": "Jaehong Ahn",
@@ -98,7 +140,11 @@
         "ppoyazero@naver.com"
       ],
       "image": "assets/c080d4cbb6d384b2.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2024.03 - present)",
+      "background": [
+        "B.S. Nano Science Engineering & Computer Science, Yonsei University"
+      ]
     },
     {
       "name": "Sihwan Kim",
@@ -108,7 +154,12 @@
         "shkim1018@yonsei.ac.kr"
       ],
       "image": "assets/7fde56635dc9cbc0.png",
-      "group": "Ph.D. Students"
+      "group": "Ph.D. Students",
+      "appointment": "Ph.D. Student (2025.08 - present)",
+      "background": [
+        "M.S. School of Artificial Intelligence, Yonsei University",
+        "B.S. Computer Science, Pennsylvania State University"
+      ]
     },
     {
       "name": "Nayeon Park",
@@ -118,7 +169,11 @@
         "naaayeon017@gmail.com"
       ],
       "image": "assets/93e58a0ee2d8b422.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2026.03 - present)",
+      "background": [
+        "B.S. Mechanical and Biomedical Engineering, Ewha Womans University"
+      ]
     },
     {
       "name": "Minyeong Kim",
@@ -128,7 +183,11 @@
         "doyee7726@naver.com"
       ],
       "image": "assets/11cb746ca1b5b9f1.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2026.03 - present)",
+      "background": [
+        "B.S. Data Science, Sungkyunkwan University"
+      ]
     },
     {
       "name": "Kyungseo Kwon",
@@ -138,7 +197,11 @@
         "wyrtrtywet@yonsei.ac.kr"
       ],
       "image": "assets/bece4167c1d3d7e3.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2026.03 - present)",
+      "background": [
+        "B.S. Department of Artificial Intelligence, Yonsei University"
+      ]
     },
     {
       "name": "Seungjun Lee",
@@ -148,7 +211,11 @@
         "happyjunlee@gmail.com"
       ],
       "image": "assets/d1a7d6a8cae79f85.png",
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2026.03 - present)",
+      "background": [
+        "B.S. Department of Artificial Intelligence, Yonsei University"
+      ]
     },
     {
       "name": "Hwanhee Cho",
@@ -158,7 +225,11 @@
         "wh020627@gmail.com"
       ],
       "image": null,
-      "group": "M.S./Ph.D. Students"
+      "group": "M.S./Ph.D. Students",
+      "appointment": "M.S./Ph.D. Student (2026.09 - present)",
+      "background": [
+        "B.S. Department of Artificial Intelligence, Yonsei University"
+      ]
     },
     {
       "name": "Subin Park",
@@ -168,7 +239,12 @@
         "subinp0507@gmail.com"
       ],
       "image": "assets/7dedb0f54a241fcf.png",
-      "group": "M.S. Students"
+      "group": "M.S. Students",
+      "appointment": "M.S. Student (2025.03 - present)",
+      "background": [
+        "B.S. Biotechnology & Molecular Biology, University of Hong Kong",
+        "Breast Cancer Category Product Manager in Pfizer"
+      ]
     },
     {
       "name": "Sunggyu Kim",
@@ -178,7 +254,12 @@
         "library8882@gmail.com"
       ],
       "image": "assets/2bd2bcf2364f49a1.png",
-      "group": "M.S. Students"
+      "group": "M.S. Students",
+      "appointment": "M.S. Student (2025.03 - present)",
+      "background": [
+        "B.S. Electrical Electronics Engineering, University of Ulsan",
+        "Machine Vision Engineer in Samsung SDI"
+      ]
     },
     {
       "name": "Eunyoung Ahn",
