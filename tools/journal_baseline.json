@@ -1,0 +1,274 @@
+[
+  {
+    "title": "Low-Dose CT Denoising Using a Diffusion Prior via Score Distillation Sampling",
+    "url": ""
+  },
+  {
+    "title": "A Multi-Stage Deep Learning Framework for Half-Detector Truncation and Metal Artifact Reduction in CBCT",
+    "url": "https://doi.org/10.1002/mp.70604"
+  },
+  {
+    "title": "Improving the efficiency of normalized metal artifact reduction via a unified forward projection",
+    "url": "https://doi.org/10.1088/1361-6560/ae3b01"
+  },
+  {
+    "title": "Dose-aware denoising diffusion model for low-dose CT",
+    "url": "https://doi.org/10.1088/1361-6560/ade8cc"
+  },
+  {
+    "title": "X-ray CT metal artifact reduction using neural attenuation field prior",
+    "url": "https://doi.org/10.1002/mp.17859"
+  },
+  {
+    "title": "Continuous representation-based reconstruction for computed tomography",
+    "url": "https://doi.org/10.1002/mp.17849"
+  },
+  {
+    "title": "Generalizability of convolutional neural network-based model observer in breast tomosynthesis across volume glandular fractions and signal sizes",
+    "url": "https://doi.org/10.1002/mp.17725"
+  },
+  {
+    "title": "Low-dose computed tomography perceptual image quality assessment",
+    "url": "https://doi.org/10.1016/j.media.2024.103343"
+  },
+  {
+    "title": "Iterative reconstruction for limited-angle CT using implicit neural representation",
+    "url": "https://doi.org/10.1088/1361-6560/ad3c8e"
+  },
+  {
+    "title": "Adapting low-dose CT denoisers for texture preservation using zero-shot local noise-level matching",
+    "url": "https://doi.org/10.1002/mp.17015"
+  },
+  {
+    "title": "Direct estimation of the noise power spectrum from patient data to generate synthesized CT noise for denoising network training",
+    "url": "https://doi.org/10.1002/mp.16963"
+  },
+  {
+    "title": "Carbon nanotube-based multiple source C-arm CT system: feasibility study with prototype system",
+    "url": "https://doi.org/10.1364/oe.503421"
+  },
+  {
+    "title": "Full 3-D modulation transfer function estimation of tomosynthesis system using modified Richardson-Lucy deconvolution",
+    "url": "https://doi.org/10.1002/mp.16843"
+  },
+  {
+    "title": "Impact of using sinogram domain data in the super resolution of CT images on diagnostic information",
+    "url": "https://doi.org/10.1002/mp.16807"
+  },
+  {
+    "title": "Power-law spectrum-based objective function to train a generative adversarial network with transfer learning for the synthetic breast CT image",
+    "url": "https://doi.org/10.1088/1361-6560/acfadf"
+  },
+  {
+    "title": "Chest tomosynthesis deblurring using CNN with deconvolution layer for vertebrae segmentation",
+    "url": "https://doi.org/10.1002/mp.16576"
+  },
+  {
+    "title": "Sparsier2Sparse: Self-supervised convolutional neural network-based streak artifacts reduction in sparse-view CT images",
+    "url": "https://doi.org/10.1002/mp.16552"
+  },
+  {
+    "title": "Helical artifact reduction method using image segmentation with CNN denoising technique",
+    "url": "https://doi.org/10.1109/access.2023.3276864"
+  },
+  {
+    "title": "Strategy to implement a convolutional neural network based ideal model observer via transfer learning for multi-slice simulated breast CT images",
+    "url": "https://doi.org/10.1088/1361-6560/acd222"
+  },
+  {
+    "title": "Convolutional neural network-based model observer for signal known statistically tasks in breast tomosynthesis images",
+    "url": "https://doi.org/10.1002/mp.16395"
+  },
+  {
+    "title": "Utilization of an attentive map to preserve anatomical features for training convolutional neural network based low dose CT denoiser",
+    "url": "https://doi.org/10.1002/mp.16263"
+  },
+  {
+    "title": "Deep Learning-based Multimodal Fusion Network for Segmentation and Classification of Breast Cancers using B-mode and Elastography Ultrasound Images",
+    "url": "https://doi.org/10.1002/btm2.10480"
+  },
+  {
+    "title": "A Methodology to Train a Convolutional Neural Network-Based Low-Dose CT Denoiser with an Accurate Image Domain Noise Insertion Technique",
+    "url": "https://doi.org/10.1109/access.2022.3198948"
+  },
+  {
+    "title": "A streak artifact reduction algorithm in sparse-view CT using a self-supervised neural representation",
+    "url": "https://doi.org/10.1002/mp.15885"
+  },
+  {
+    "title": "Perceptual CT Loss: Implementing CT Image Specific Perceptual Loss for CNN-Based Low-Dose CT Denoiser",
+    "url": "https://doi.org/10.1109/access.2022.3182821"
+  },
+  {
+    "title": "Convolutional neural network-based metal and streak artifacts reduction in dental CT images with sparse-view sampling scheme",
+    "url": "https://doi.org/10.1002/mp.15884"
+  },
+  {
+    "title": "Effect of optical blurring of X-ray source on breast tomosynthesis image quality: Modulation transfer function, anatomical noise power spectrum, and signal detectability perspectives",
+    "url": "https://doi.org/10.1371/journal.pone.0267850"
+  },
+  {
+    "title": "Two phase learning based 3D deblurring method for digital breast tomosynthesis images",
+    "url": "https://doi.org/10.1371/journal.pone.0262736"
+  },
+  {
+    "title": "Method to estimate fan-beam CT noise power spectrum using two basis functions with a limited number of noise realizations",
+    "url": "https://doi.org/10.1002/mp.15445"
+  },
+  {
+    "title": "Low dose CT denoising via convolutional neural network with an observer loss function",
+    "url": "https://doi.org/10.1002/mp.15161"
+  },
+  {
+    "title": "Geometry calibration and image reconstruction for carbon-nanotube-based multisource and multidetector CT",
+    "url": "https://doi.org/10.1088/1361-6560/ac16c1"
+  },
+  {
+    "title": "Weakly-Supervised Progressive Denoising with Unpaired CT images",
+    "url": "https://doi.org/10.1016/j.media.2021.102065"
+  },
+  {
+    "title": "GAN2GAN: Generative Noise Learning for Blind Denoising with Single Noisy Images",
+    "url": "https://arxiv.org/abs/1905.10488"
+  },
+  {
+    "title": "A metal artifact reduction method for small field of view CT imaging",
+    "url": "https://doi.org/10.1371/journal.pone.0227656"
+  },
+  {
+    "title": "Rigid and non-rigid motion artifact reduction in X-ray CT using attention module",
+    "url": "https://doi.org/10.1016/j.media.2020.101883"
+  },
+  {
+    "title": "A convolutional neural network-based anthropomorphic model observer for signal-known-statistically and background known statistically detection tasks",
+    "url": "https://doi.org/10.1088/1361-6560/abbf9d"
+  },
+  {
+    "title": "A convolutional neural network-based anthropomorphic model observer for signal detection in breast CT images without human-labeled data",
+    "url": "https://doi.org/10.1109/access.2020.3021125"
+  },
+  {
+    "title": "3D MTF estimation using sphere phantoms for cone beam computed tomography systems",
+    "url": "https://doi.org/10.1002/mp.14147"
+  },
+  {
+    "title": "Dual energy approach to reduce cone-beam artifacts in a circular orbit cone-beam CT system",
+    "url": "https://doi.org/10.1049/el.2020.0544"
+  },
+  {
+    "title": "Human observer performance on in-plane digital breast tomosynthesis images: Effects of reconstruction filters and data acquisition angles on signal detection",
+    "url": "https://doi.org/10.1371/journal.pone.0229915"
+  },
+  {
+    "title": "A convolutional neural network-based model observer for breast CT images",
+    "url": "https://doi.org/10.1002/mp.14072"
+  },
+  {
+    "title": "A Performance Comparison of CNN-based Image Denoising Methods: The Effect of Loss Functions on Low-dose CT Images",
+    "url": "https://doi.org/10.1002/mp.13713"
+  },
+  {
+    "title": "A performance comparison of anthropomorphic model observers for breast cone beam CT images: a single-slice and multislice study",
+    "url": "https://doi.org/10.1002/mp.13598"
+  },
+  {
+    "title": "Multi-pass approach to reduce cone-beam artifacts in a circular orbit cone-beam CT system",
+    "url": "https://doi.org/10.1364/oe.27.010108"
+  },
+  {
+    "title": "Evaluation of human observer performance on lesion detectability in single-slice and multislice dedicated breast cone beam CT images with breast anatomical background",
+    "url": "https://doi.org/10.1002/mp.13220"
+  },
+  {
+    "title": "Hybrid Approach to Reduce Cone-Beam Artifacts for a Circular Orbit Cone-Beam CT System",
+    "url": "https://doi.org/10.1109/access.2018.2871804"
+  },
+  {
+    "title": "Inter-laboratory comparison of channelized Hotelling observer computation",
+    "url": "https://doi.org/10.1002/mp.12940"
+  },
+  {
+    "title": "Correction of severe beam-hardening artifacts via a high-order linearization function using a prior-image-based parameter selection method",
+    "url": "https://doi.org/10.1002/mp.13072"
+  },
+  {
+    "title": "Human and model observer performance for lesion detection in breast cone beam CT images with the FDK reconstruction",
+    "url": "https://doi.org/10.1371/journal.pone.0194408"
+  },
+  {
+    "title": "An inverse filtering approach to measure directional in-plane modulation transfer function using a sphere phantom for a digital tomosynthesis system",
+    "url": "https://doi.org/10.1364/oe.25.017280"
+  },
+  {
+    "title": "A metal artifact reduction algorithm in CT using multiple prior images by recursive active contour segmentation",
+    "url": "https://doi.org/10.1371/journal.pone.0179022"
+  },
+  {
+    "title": "A model-based sinogram correction for beam hardening artifact reduction in CT",
+    "url": "https://doi.org/10.1002/mp.12218"
+  },
+  {
+    "title": "Moving beam-blocker-based low-dose cone-beam CT",
+    "url": "https://doi.org/10.1109/tns.2016.2604343"
+  },
+  {
+    "title": "Effect of anatomical noise on the detectability of cone beam CT images with different slice direction, slice thickness, and volume glandular fraction",
+    "url": "https://doi.org/10.1364/oe.24.018843"
+  },
+  {
+    "title": "Multi-source Inverse-geometry CT Part 1: System Concept and Development",
+    "url": "https://doi.org/10.1118/1.4954846"
+  },
+  {
+    "title": "Investigation on slice direction dependent detectability of volumetric cone beam CT image",
+    "url": "https://doi.org/10.1364/oe.24.003749"
+  },
+  {
+    "title": "A Sphere Phantom Approach to Measure Directional Modulation Transfer Functions for Tomosynthesis Imaging Systems",
+    "url": "https://doi.org/10.1109/tmi.2015.2498930"
+  },
+  {
+    "title": "A new method to measure directional modulation transfer function using sphere phantoms in a cone beam computed tomography system",
+    "url": "https://doi.org/10.1109/tmi.2014.2369524"
+  },
+  {
+    "title": "Raw data normalization for a multi source inverse geometry CT system",
+    "url": "https://doi.org/10.1364/oe.23.007514"
+  },
+  {
+    "title": "Ring artifact correction using detector-line ratios in computed tomography",
+    "url": "https://doi.org/10.1364/oe.22.013380"
+  },
+  {
+    "title": "A new CT concept: Inverse Geometry CT",
+    "url": "https://doi.org/10.1007/s13534-014-0125-3"
+  },
+  {
+    "title": "A Multiple-Source Inverse-Geometry CT system: Initial results with an 8 spot x-ray source array",
+    "url": "https://doi.org/10.1088/0031-9155/59/5/1189"
+  },
+  {
+    "title": "To Bin or Not to Bin? The effect of CT system limiting resolution on noise and detectability",
+    "url": "https://doi.org/10.1088/0031-9155/58/5/1433"
+  },
+  {
+    "title": "Effect of detector lag on CT noise power spectra",
+    "url": "https://doi.org/10.1118/1.3589135"
+  },
+  {
+    "title": "Local and global 3D noise power spectrum in cone beam CT system with FDK reconstruction",
+    "url": "https://doi.org/10.1118/1.3556590"
+  },
+  {
+    "title": "A new method to combine 3D reconstruction volumes for multiple parallel circular conebeam orbits",
+    "url": "https://doi.org/10.1118/1.3484058"
+  },
+  {
+    "title": "The noise power spectrum in CT with direct fan beam reconstruction",
+    "url": "https://doi.org/10.1118/1.3378673"
+  },
+  {
+    "title": "Direct two-dimensional reconstruction algorithm for an inverse-geometry CT system",
+    "url": "https://doi.org/10.1118/1.3050160"
+  }
+]

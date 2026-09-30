@@ -23,3 +23,10 @@ assert.ok(!render.publication({...fixture, url:'javascript:alert(1)'}).includes(
 assert.equal(JSON.stringify(papers), original);
 assert.equal((render.journal(papers).match(/class="publication-link"/g)||[]).length, papers.filter(p=>p.url).length);
 console.log('PASS: additions update both views, latest three, stable ordering, links, escaping and distinctions.');
+
+const newlyRegistered = {...fixture, title: 'Newly registered older-year paper', year: '2020', news_date: '2026-10', news_added_at: '2026-10-01T01:00:00+09:00'};
+const registrationNews = render.recent([...papers, newlyRegistered]);
+assert.ok(registrationNews.includes('Oct. 2026'));
+assert.ok(registrationNews.indexOf(newlyRegistered.title) < registrationNews.indexOf(papers[0].title));
+assert.equal((registrationNews.match(/class="news-item"/g)||[]).length, 3);
+console.log('PASS: registration order controls recent news.');
