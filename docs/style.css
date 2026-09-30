@@ -42,12 +42,12 @@
 
 /* Full-width campus photograph above the introduction. */
 .home-main>section{width:min(var(--width),calc(100% - 48px));margin-left:auto;margin-right:auto}
-.home-main>.hero{width:100%;min-height:390px;padding:72px 24px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.62)),url("assets/yonsei-campus-wide.jpg") center 45%/cover no-repeat}
+.home-main>.hero{width:100%;min-height:450px;padding:72px 24px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.62)),url("assets/yonsei-campus-wide.jpg") center 45%/cover no-repeat}
 .home-main>.hero .subtitle{color:#343b45;margin-bottom:0}
-.home-main>.intro{padding-top:16px;padding-bottom:48px;align-items:start}
+.home-main>.intro{padding-top:32px;padding-bottom:48px;align-items:start}
 .home-main>.intro .lab-mark{padding-top:0}
 @media(max-width:720px){
 .home-main>section{width:calc(100% - 36px)}
-.home-main>.hero{width:100%;min-height:340px;padding:48px 18px;background-position:55% 55%}
-.home-main>.intro{padding-top:16px;padding-bottom:35px}
+.home-main>.hero{width:100%;min-height:380px;padding:48px 18px;background-position:55% 55%}
+.home-main>.intro{padding-top:24px;padding-bottom:35px}
 }
