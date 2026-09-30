@@ -80,7 +80,7 @@ for key,title,desc in [('researchers','Researchers',''),('alumni','Alumni','')]:
         content+='<div class="people-grid">'+''.join(person(p) for p in members)+'</div>'
     if staff:content+='<h2 class="member-group-title">Staff</h2><div class="people-grid">'+''.join(person(p) for p in staff)+'</div>'
     page(key+'.html',title,content,'People',sub=desc)
-for key,title,desc in [('journal','Journal','Research outputs supporting TMI’s translational medical intelligence pipeline.'),('conference','Conference','Selected conference papers and presentations from TMI.')]:
+for key,title,desc in [('journal','Journal',''),('conference','Conference','')]:
     years=list(dict.fromkeys(p['year'] for p in D[key]))
     content=tabs(PUBS,key+'.html').replace('class="subnav"','class="subnav publication-tabs"')+'<div class="pub-layout"><nav class="year-nav" aria-label="Publication years">'+''.join(f'<a href="#year-{y.replace(" ","-")}">{y}</a>' for y in years)+'</nav><div>'
     for year in years:content+=f'<section class="year-group" id="year-{year.replace(" ","-")}"><h2>{year}</h2>'+''.join(publication(p) for p in D[key] if p['year']==year)+'</section>'
