@@ -34,7 +34,10 @@
     const venue = paper.journal_name || paper.venue.split(',')[0];
     return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>The paper &quot;<strong>' + escape(paper.title) + '</strong>&quot; is accepted to <strong>' + escape(venue) + '</strong>.</p></article>';
   }
-  function recent(records) { return ordered(records).slice(0, 3).map(news).join(''); }
+  function recent(records) {
+    const rank = paper => paper.news_added_at || (paper.news_date ? paper.news_date.slice(0, 7) + '-01T00:00:00+09:00' : '');
+    return ordered(records).sort((a, b) => rank(b).localeCompare(rank(a))).slice(0, 3).map(news).join('');
+  }
   function journal(records) {
     const papers = ordered(records);
     const years = [...new Set(papers.map(p => p.year))];
