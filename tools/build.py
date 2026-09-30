@@ -8,7 +8,7 @@ def page(filename,title,content,active,sub='',source=None):
     nav=''.join(f'<a href="{url}"'+(' aria-current="page"' if name==active else '')+f'>{name}</a>' for name,url in NAV)
     head='' if filename=='index.html' else f'<div class="page-heading"><h1>{title}</h1><p>{sub}</p></div>'
     output=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} | TMI Lab · Yonsei University</title><meta name="description" content="Translational Medical Intelligence Lab at Yonsei University. Medical imaging, trustworthy AI, computational imaging, and clinical translation."><meta name="theme-color" content="#14319C"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="publications.js" defer></script><script src="site.js" defer></script></head><body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="TMI Lab home"><img src="assets/tmi-logo-intelligence.png" alt="TMI"><span>Yonsei University</span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false">☰</button><nav id="navigation" class="nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{head}{content}</main><footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><h3>TMI Lab</h3><p>Translational Medical Intelligence Laboratory<br>Department of Artificial Intelligence · Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div class="footer-links"><a href="people.html">People</a><a href="journal.html">Publications</a><a href="join.html">Join Us</a></div></div><p class="copyright">© 2026 TMI Lab, Yonsei University.</p></div></footer></body></html>'''
-    output=output.replace('href="style.css"','href="style.css?v=20260930-background"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
+    output=output.replace('href="style.css"','href="style.css?v=20260930-memberbullets"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
     (OUT/filename).write_text(output,encoding='utf-8')
 def tabs(items,current):return '<nav class="subnav" aria-label="Section navigation">'+''.join(f'<a href="{f}"'+(' aria-current="page"' if f==current else '')+f'>{name}</a>' for name,f in items)+'</nav>'
 PEOPLE=[('Professor','people.html'),('Researchers','researchers.html'),('Alumni','alumni.html')]
@@ -48,9 +48,6 @@ profile=tabs(PEOPLE,'people.html')+f'''<section class="profile"><img src="{D['im
 profile+='<section class="section career-section"><h2>Education</h2><ul class="affiliations">'+''.join(f'<li><strong>{E(a["dates"])} : {E(a["description"])}</strong><br>'+'<br>'.join(E(x) for x in a["details"])+'</li>' for a in education)+'</ul></section>'
 page('people.html','Professor',profile,'People',sub='Leading innovation in medical imaging, AI, and clinical translation.')
 def career_text(text):
-    label='Postdoctoral Scholar'
-    if text.startswith(label):
-        return '<a class="career-link" href="https://doresearch.stanford.edu/policies/research-policy-handbook/non-faculty-research-appointments/postdoctoral-scholars" target="_blank" rel="noopener noreferrer">'+label+'</a>'+E(text[len(label):])
     return E(text)
 
 def person(p):
