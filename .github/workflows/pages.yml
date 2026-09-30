@@ -1,0 +1,42 @@
+name: Publish lab website
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/configure-pages@v5
+      - name: Verify news dates and rendering
+        run: |
+          python3 tools/test_news_dates.py
+          node tools/test_publications.cjs
+      - name: Resolve journal registration months
+        run: python3 tools/news_dates.py
+      - name: Build website
+        run: python3 tools/build.py
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
