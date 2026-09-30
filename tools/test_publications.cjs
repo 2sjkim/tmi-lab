@@ -13,7 +13,7 @@ const journal = render.journal(changed);
 assert.equal((recent.match(/<article /g) || []).length, 3);
 assert.ok(recent.startsWith('<article class="news-item">'));
 assert.ok(recent.includes('<strong>New paper &lt;test&gt;</strong>'));
-assert.ok(journal.includes(render.publication(fixture)));
+assert.ok(journal.includes(render.publication(fixture, 'J1')));
 assert.ok(recent.includes('<time datetime="2026-09-29">Sep. 2026</time>'));
 assert.ok(recent.includes('is accepted to <strong>Test journal</strong>.'));
 assert.ok(render.news({...fixture, news_date: undefined}).includes('News date not provided'));
@@ -31,3 +31,7 @@ assert.ok(registrationNews.includes('Oct. 2026'));
 assert.ok(registrationNews.indexOf(newlyRegistered.title) < registrationNews.indexOf(papers[0].title));
 assert.equal((registrationNews.match(/class="news-item"/g)||[]).length, 3);
 console.log('PASS: registration order controls recent news.');
+
+const numbers = [...render.journal(changed).matchAll(/<h3>\[J(\d+)\] /g)].map(m => Number(m[1]));
+assert.deepEqual(numbers, changed.map((_,i)=>i+1));
+console.log("PASS: journal numbering stays continuous across years and additions.");

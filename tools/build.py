@@ -8,7 +8,7 @@ def page(filename,title,content,active,sub='',source=None):
     nav=''.join(f'<a href="{url}"'+(' aria-current="page"' if name==active else '')+f'>{name}</a>' for name,url in NAV)
     head='' if filename=='index.html' else f'<div class="page-heading"><h1>{title}</h1>'+ (f'<p>{sub}</p>' if sub else '')+'</div>'
     output=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} | TMI Lab · Yonsei University</title><meta name="description" content="Translational Medical Intelligence Lab at Yonsei University. Medical imaging, trustworthy AI, computational imaging, and clinical translation."><meta name="theme-color" content="#14319C"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="publications.js" defer></script><script src="site.js" defer></script></head><body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="TMI Lab home"><img src="assets/tmi-logo-intelligence.png" alt="TMI"><span class="university-brand"><img class="university-logo" src="assets/yonsei-wordmark.svg" alt="Yonsei University" width="148" height="44"></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false">☰</button><nav id="navigation" class="nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{head}{content}</main><footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><h3>TMI Lab</h3><p>Translational Medical Intelligence Laboratory<br>Department of Artificial Intelligence · Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div class="footer-links"><a href="people.html">People</a><a href="journal.html">Publications</a><a href="join.html">Join Us</a></div></div><p class="copyright">© 2026 TMI Lab, Yonsei University.</p></div></footer></body></html>'''
-    output=output.replace('href="style.css"','href="style.css?v=20260930-campus-contrast"').replace('src="publications.js"','src="publications.js?v=20260930-autonews"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
+    output=output.replace('href="style.css"','href="style.css?v=20260930-numbered"').replace('src="publications.js"','src="publications.js?v=20260930-numbered"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
     if filename == "index.html":
         output = output.replace('<main id="main" class="wrap">', '<main id="main" class="home-main">')
     (OUT/filename).write_text(output,encoding='utf-8')
@@ -22,14 +22,15 @@ def area_grid(images=False):
         image=f'<img class="research-visual" src="{D["images"]["home"][n]}" alt="{E(title)}" loading="lazy">' if images else ''
         out+=f'<article>{image}<span class="number">0{n+1}</span><h3>{title}</h3><p>{desc}</p><ul class="bullets">'+''.join(f'<li>{E(p)}</li>' for p in points)+'</ul></article>'
     return out+'</div>'
-def publication(p):
+def publication(p, number=""):
+    prefix=f"[{E(number)}] " if number else ""
     venue=E(p['venue'])
     for label in ["Editor's Choice", 'Oral Presentation']:
         venue=venue.replace(E(label), '<span class="publication-distinction">'+E(label)+'</span>')
     clip='<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21.4 11.6-9.2 9.2a6 6 0 0 1-8.5-8.5l10-10a4 4 0 0 1 5.7 5.7l-10 10a2 2 0 0 1-2.8-2.8l9.2-9.2"/></svg>'
     paper_link=f' <a class="publication-link" href="{E(p["url"],quote=True)}" target="_blank" rel="noopener noreferrer" aria-label="Open paper: {E(p["title"],quote=True)}">{clip}<span>Link</span></a>' if p.get('url') else ''
     links=' '.join(f'<a href="{E(a["url"],quote=True)}">{E(a["text"])}</a>' for a in p['links'])
-    return f'<article class="publication"><h3>{E(p["title"])}{paper_link}</h3><p>{E(p["authors"])}</p><p class="venue">{venue}</p>'+ (f'<p class="paper-links">{links}</p>' if links else '')+'</article>'
+    return f'<article class="publication"><h3>{prefix}{E(p["title"])}{paper_link}</h3><p>{E(p["authors"])}</p><p class="venue">{venue}</p>'+ (f'<p class="paper-links">{links}</p>' if links else '')+'</article>'
 def news(p):
     date=p.get('news_date','')
     months=['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
@@ -86,10 +87,11 @@ for key,title,desc in [('researchers','Researchers',''),('alumni','Alumni','')]:
 for key,title,desc in [('journal','Journal',''),('conference','Conference','')]:
     years=list(dict.fromkeys(p['year'] for p in D[key]))
     content=tabs(PUBS,key+'.html').replace('class="subnav"','class="subnav publication-tabs"')+'<div class="pub-layout"><nav class="year-nav" aria-label="Publication years">'+''.join(f'<a href="#year-{y.replace(" ","-")}">{y}</a>' for y in years)+'</nav><div>'
-    for year in years:content+=f'<section class="year-group" id="year-{year.replace(" ","-")}"><h2>{year}</h2>'+''.join(publication(p) for p in D[key] if p['year']==year)+'</section>'
+    labels={id(p): ('J' if key=='journal' else 'C')+str(i) for i,p in enumerate((p for year in years for p in D[key] if p['year']==year),1)}
+    for year in years:content+=f'<section class="year-group" id="year-{year.replace(" ","-")}"><h2>{year}</h2>'+''.join(publication(p,labels[id(p)]) for p in D[key] if p['year']==year)+'</section>'
     if key=='journal':content=content.replace('<div class="pub-layout">','<div class="pub-layout" data-journal-publications>')
     page(key+'.html',title,content+'</div></div>','Publications',sub=desc)
-page('patents.html','Patents','<section>'+''.join(publication(p) for p in D['patents'])+'</section>','Patents',sub='Innovations and intellectual property developed at TMI.')
+page('patents.html','Patents','<div class="pub-layout patent-layout"><div class="patent-gutter" aria-hidden="true"></div><section>'+''.join(publication(p,'P'+str(i)) for i,p in enumerate(D['patents'],1))+'</section></div>','Patents',sub='Innovations and intellectual property developed at TMI.')
 join='''<p class="join-intro">We work at the intersection of artificial intelligence, imaging physics, and clinical translation.</p><section class="section"><p class="eyebrow">Research with us</p><h2>Work on problems that connect imaging physics,<br>artificial intelligence, and medicine.</h2><div class="approach">'''
 for n,(title,points) in enumerate([('Physical AI for Imaging',['X-ray imaging systems','Imaging physics & acquisition','Dose efficiency & system modeling']),('Computational Imaging',['CT reconstruction','Inverse problems & optimization','Artifact reduction & image quality']),('Medical Intelligence',['Diagnostic AI & decision support','Foundation models for imaging','Synthetic data & clinical validation'])]):join+=f'<article><span class="number">0{n+1}</span><h3>{title}</h3><ul class="bullets">'+''.join(f'<li>{E(p)}</li>' for p in points)+'</ul></article>'
 join+='</div></section><section class="section"><p class="eyebrow">Who we’re looking for</p><h2>You may be a good fit if you are interested in…</h2><div class="interests">'+''.join(f'<span>{x}</span>' for x in ['Deep Learning','Computer Vision','Signal Processing','Inverse Problems','Probability & Statistics','Software Engineering','Medical Imaging'])+'</div><p>We value strong fundamentals, curiosity, and a collaborative attitude.</p><div class="join-contact"><h2>Join TMI and work on the next generation<br>of intelligent medical imaging.</h2><p>Please contact <a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a>.</p></div></section>'
