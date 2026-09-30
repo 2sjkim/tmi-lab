@@ -1,7 +1,7 @@
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
-if (document.querySelector('.publication-tabs') || /(?:^|\/)patents\.html$/.test(location.pathname)) {
+{
   const topButton = document.createElement('button');
   topButton.type = 'button';
   topButton.className = 'back-to-top';
