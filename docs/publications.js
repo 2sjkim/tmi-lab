@@ -42,9 +42,9 @@
   function journal(records) {
     const papers = ordered(records);
     const years = [...new Set(papers.map(p => p.year))];
-    let number = 0;
+    let number = papers.length;
     const id = year => 'year-' + String(year).replace(/[^a-zA-Z0-9_-]/g, '-');
-    return '<nav class="year-nav" aria-label="Publication years">' + years.map(year => '<a href="#' + id(year) + '">' + escape(year) + '</a>').join('') + '</nav><div>' + years.map(year => '<section class="year-group" id="' + id(year) + '"><h2>' + escape(year) + '</h2>' + papers.filter(p => p.year === year).map(p => publication(p, 'J' + (++number))).join('') + '</section>').join('') + '</div>';
+    return '<nav class="year-nav" aria-label="Publication years">' + years.map(year => '<a href="#' + id(year) + '">' + escape(year) + '</a>').join('') + '</nav><div>' + years.map(year => '<section class="year-group" id="' + id(year) + '"><h2>' + escape(year) + '</h2>' + papers.filter(p => p.year === year).map(p => publication(p, 'J' + (number--))).join('') + '</section>').join('') + '</div>';
   }
   const api = {ordered, publication, news, recent, journal};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
