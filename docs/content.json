@@ -404,7 +404,10 @@
       "authors": "Seongjun Kim, Byeongjoon Kim, Jongduk Baek",
       "venue": "Physics in Medicine and Biology, 2025",
       "links": [],
-      "url": "https://doi.org/10.1088/1361-6560/ade8cc"
+      "url": "https://doi.org/10.1088/1361-6560/ade8cc",
+      "news_date": "2025-07",
+      "news_date_source": "publication_month",
+      "publication_date_reference": "https://pubmed.ncbi.nlm.nih.gov/40570896/"
     },
     {
       "year": "2025",
