@@ -74,7 +74,7 @@ for key,title,desc in [('researchers','Researchers',''),('alumni','Alumni','')]:
     members=[p for p in D[key] if p['details'][0]!='Staff'];staff=[p for p in D[key] if p['details'][0]=='Staff']
     content=tabs(PEOPLE,key+'.html')
     if key=='researchers':
-        for group in ['Research Associate','Postdoc','M.S./Ph.D. Students','Ph.D. Students','M.S. Students']:
+        for group in ['Research Associate','Postdoc','Ph.D. Students','M.S./Ph.D. Students','M.S. Students']:
             content+=f'<section class="researcher-group"><h2 class="member-group-title">{E(group)}</h2><div class="people-grid">'+''.join(person(p) for p in members if p['group']==group)+'</div></section>'
     else:
         content+='<div class="people-grid">'+''.join(person(p) for p in members)+'</div>'
