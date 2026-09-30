@@ -7,7 +7,8 @@
         "CT image quality evaluation, CT denoising with deep learning",
         "hma90@naver.com"
       ],
-      "image": "assets/faa9d8a89d9e6864.png"
+      "image": "assets/faa9d8a89d9e6864.png",
+      "group": "Postdoc"
     },
     {
       "name": "Byeongjoon Kim",
@@ -16,7 +17,8 @@
         "CT denoising with deep learning",
         "bjkimp52014@gmail.com"
       ],
-      "image": "assets/c440740ac3cc1e26.png"
+      "image": "assets/c440740ac3cc1e26.png",
+      "group": "Postdoc"
     },
     {
       "name": "Hanjoo Jang",
@@ -25,7 +27,8 @@
         "Image quality evaluation of medical images",
         "imhanjoo@naver.com"
       ],
-      "image": "assets/2ea25866982b46ec.png"
+      "image": "assets/2ea25866982b46ec.png",
+      "group": "Postdoc"
     },
     {
       "name": "Seongjun Kim",
@@ -34,7 +37,8 @@
         "Deep learning applications for low-dose CT and sparse-view CT",
         "2sjkim@gmail.com"
       ],
-      "image": "assets/8c2c257838016e04.png"
+      "image": "assets/8c2c257838016e04.png",
+      "group": "Postdoc"
     },
     {
       "name": "Junhyun Ahn",
@@ -43,7 +47,8 @@
         "Deep learning applications for metal artifact reduction",
         "tony1124@naver.com"
       ],
-      "image": "assets/f6ede00ad772b8c1.png"
+      "image": "assets/f6ede00ad772b8c1.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Minwoo Yu",
@@ -52,7 +57,8 @@
         "Super-resolution of CT images with deep learning",
         "ymw9754@gmail.com"
       ],
-      "image": "assets/84608315fa53ba19.png"
+      "image": "assets/84608315fa53ba19.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Jooho Lee",
@@ -61,7 +67,8 @@
         "Image reconstruction and enhancement",
         "jooholee@yonsei.ac.kr"
       ],
-      "image": "assets/9ef209f54c7db190.png"
+      "image": "assets/9ef209f54c7db190.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Hojin Jung",
@@ -70,7 +77,8 @@
         "Generative models for CT image enhancement",
         "wjdghwls98@gmail.com"
       ],
-      "image": "assets/ca2e55dbbb702be1.png"
+      "image": "assets/ca2e55dbbb702be1.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Yoonha Eo",
@@ -79,7 +87,8 @@
         "Diagnostic AI for medical imaging",
         "yoonhaeo@yonsei.ac.kr"
       ],
-      "image": "assets/9dfb85edf8ee5888.png"
+      "image": "assets/9dfb85edf8ee5888.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Jaehong Ahn",
@@ -88,25 +97,8 @@
         "AI for super resolution in medical images",
         "ppoyazero@naver.com"
       ],
-      "image": "assets/c080d4cbb6d384b2.png"
-    },
-    {
-      "name": "Subin Park",
-      "details": [
-        "M.S./Ph.D. Student",
-        "AI for dental panoramic diagnosis",
-        "subinp0507@gmail.com"
-      ],
-      "image": "assets/7dedb0f54a241fcf.png"
-    },
-    {
-      "name": "Sunggyu Kim",
-      "details": [
-        "M.S. Student",
-        "AI for battery inspection image processing",
-        "library8882@gmail.com"
-      ],
-      "image": "assets/2bd2bcf2364f49a1.png"
+      "image": "assets/c080d4cbb6d384b2.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Sihwan Kim",
@@ -115,7 +107,8 @@
         "AI for Dental panoramic diagnosis",
         "shkim1018@yonsei.ac.kr"
       ],
-      "image": "assets/7fde56635dc9cbc0.png"
+      "image": "assets/7fde56635dc9cbc0.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Nayeon Park",
@@ -124,7 +117,8 @@
         "AI for sparse view CT",
         "naaayeon017@gmail.com"
       ],
-      "image": "assets/93e58a0ee2d8b422.png"
+      "image": "assets/93e58a0ee2d8b422.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Minyeong Kim",
@@ -133,7 +127,8 @@
         "AI for patient specific CT denoising",
         "doyee7726@naver.com"
       ],
-      "image": "assets/11cb746ca1b5b9f1.png"
+      "image": "assets/11cb746ca1b5b9f1.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Kyungseo Kwon",
@@ -142,7 +137,8 @@
         "Deep learning applications for metal artifact reduction",
         "wyrtrtywet@yonsei.ac.kr"
       ],
-      "image": "assets/bece4167c1d3d7e3.png"
+      "image": "assets/bece4167c1d3d7e3.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Seungjun Lee",
@@ -151,7 +147,8 @@
         "AI for medical imaging, robust vision systems",
         "happyjunlee@gmail.com"
       ],
-      "image": "assets/d1a7d6a8cae79f85.png"
+      "image": "assets/d1a7d6a8cae79f85.png",
+      "group": "Ph.D. Students"
     },
     {
       "name": "Hwanhee Cho",
@@ -160,7 +157,28 @@
         "AI for structure aware CT denoising",
         "wh020627@gmail.com"
       ],
-      "image": null
+      "image": null,
+      "group": "Ph.D. Students"
+    },
+    {
+      "name": "Subin Park",
+      "details": [
+        "M.S. Student",
+        "AI for dental panoramic diagnosis",
+        "subinp0507@gmail.com"
+      ],
+      "image": "assets/7dedb0f54a241fcf.png",
+      "group": "M.S. Students"
+    },
+    {
+      "name": "Sunggyu Kim",
+      "details": [
+        "M.S. Student",
+        "AI for battery inspection image processing",
+        "library8882@gmail.com"
+      ],
+      "image": "assets/2bd2bcf2364f49a1.png",
+      "group": "M.S. Students"
     },
     {
       "name": "Eunyoung Ahn",
