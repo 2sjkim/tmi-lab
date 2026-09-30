@@ -53,3 +53,5 @@
 }
 
 @media(max-width:720px){.patent-gutter{display:none}}
+
+.news-item a{color:inherit}.news-item .news-award,.news-item .news-award strong{color:#c62828;font-weight:700}

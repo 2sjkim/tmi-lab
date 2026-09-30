@@ -32,12 +32,23 @@
     const date = /^\d{4}-(?:0[1-9]|1[0-2])(?:-\d{2})?$/.test(paper.news_date || '') ? paper.news_date : '';
     const months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
     const dateMarkup = date ? '<time datetime="' + date + '">' + months[Number(date.slice(5, 7)) - 1] + ' ' + date.slice(0, 4) + '</time>' : '<span aria-label="News date not provided">—</span>';
+    if (Array.isArray(paper.segments)) {
+      const body = paper.segments.map(segment => {
+        let text = escape(segment.text);
+        if (segment.bold) text = '<strong>' + text + '</strong>';
+        if (segment.color === 'red') text = '<span class="news-award">' + text + '</span>';
+        const url = safeUrl(segment.url);
+        if (url) text = '<a href="' + escape(url) + '" target="_blank" rel="noopener noreferrer">' + text + '</a>';
+        return text;
+      }).join('');
+      return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>' + body + '</p></article>';
+    }
     const venue = paper.journal_name || paper.venue.split(',')[0];
     return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>The paper &quot;<strong>' + escape(paper.title) + '</strong>&quot; is accepted to <strong>' + escape(venue) + '</strong>.</p></article>';
   }
-  function recent(records) {
+  function recent(records, additionalNews = []) {
     const rank = paper => paper.news_added_at || (paper.news_date ? paper.news_date.slice(0, 7) + '-01T00:00:00+09:00' : '');
-    return ordered(records).sort((a, b) => rank(b).localeCompare(rank(a))).slice(0, 3).map(news).join('');
+    return ordered([...records, ...additionalNews]).sort((a, b) => rank(b).localeCompare(rank(a))).slice(0, 5).map(news).join('');
   }
   function journal(records) {
     const papers = ordered(records);

@@ -39,7 +39,7 @@ if ((recentNews || journalPublications) && location.protocol !== 'file:') {
         paper && ['title', 'authors', 'venue', 'year'].every(key => typeof paper[key] === 'string'))) {
         throw new Error('Invalid journal data');
       }
-      if (recentNews) recentNews.innerHTML = TMIPublications.recent(data.journal);
+      if (recentNews) recentNews.innerHTML = TMIPublications.recent(data.journal, Array.isArray(data.news) ? data.news : []);
       if (journalPublications) journalPublications.innerHTML = TMIPublications.journal(data.journal);
       if (location.hash.startsWith('#year-')) {
         document.getElementById(location.hash.slice(1))?.scrollIntoView();

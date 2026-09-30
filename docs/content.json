@@ -1949,5 +1949,41 @@
         ]
       }
     ]
-  }
+  },
+  "news": [
+    {
+      "id": "yoonha-eo-bite2text-2026",
+      "news_date": "2026-09",
+      "news_added_at": "2026-09-30T00:00:00+09:00",
+      "segments": [
+        {
+          "text": "Congratulations! "
+        },
+        {
+          "text": "Yoonha Eo",
+          "bold": true
+        },
+        {
+          "text": " won the "
+        },
+        {
+          "text": "Second Place Award",
+          "bold": true,
+          "color": "red",
+          "url": "https://odin2026.grand-challenge.org/challenge-winners/"
+        },
+        {
+          "text": " in Bite2Text challenge at "
+        },
+        {
+          "text": "MICCAI 2026, ODIN Workshop",
+          "bold": true,
+          "url": "https://odin-workshops.org/2026/"
+        },
+        {
+          "text": "."
+        }
+      ]
+    }
+  ]
 }
