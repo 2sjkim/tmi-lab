@@ -38,7 +38,7 @@
 
 .person .member-scholar .scholar-link{font-size:16px;color:#4664B5;overflow-wrap:normal}.person .member-scholar .scholar-link:hover{color:#14319C}.member-scholar{margin-top:4px}
 
-.brand .university-brand{display:flex;align-items:center;padding-left:16px}.brand .university-logo{width:148px;height:44px;object-fit:contain}@media(max-width:720px){.brand .university-logo{width:38px;height:38px}.brand .university-brand{padding-left:12px}.brand{gap:12px}}
+.brand .university-brand{display:flex;align-items:center;padding-left:16px}.brand .university-logo{width:148px;height:44px;object-fit:contain}@media(max-width:720px){.brand>img,.brand .university-logo{width:auto;height:40px;max-width:none;object-fit:contain}.brand .university-brand{padding-left:10px}.brand{gap:10px}.header-inner{gap:12px}}@media(max-width:360px){.brand>img,.brand .university-logo{height:36px}}
 
 /* Full-width campus photograph above the introduction. */
 .home-main>section{width:min(var(--width),calc(100% - 48px));margin-left:auto;margin-right:auto}
