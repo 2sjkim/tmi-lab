@@ -6,7 +6,8 @@ const papers = JSON.parse(fs.readFileSync(path.join(__dirname, '../docs/content.
 const original = JSON.stringify(papers);
 const fixture = {title: 'New paper <test>', authors: 'Test Author', venue: "Test journal, Editor's Choice", year: '2027', news_date: '2026-09-29', links: [], url: 'https://example.org/paper'};
 // An added year wins even if an editor appends the record; both views use it.
-const changed = [...papers, fixture];
+const olderPapers = papers.map(p => ({...p, news_date: '2025-01', news_added_at: undefined}));
+const changed = [...olderPapers, fixture];
 const recent = render.recent(changed);
 const journal = render.journal(changed);
 assert.equal((recent.match(/<article /g) || []).length, 3);
@@ -25,7 +26,7 @@ assert.equal((render.journal(papers).match(/class="publication-link"/g)||[]).len
 console.log('PASS: additions update both views, latest three, stable ordering, links, escaping and distinctions.');
 
 const newlyRegistered = {...fixture, title: 'Newly registered older-year paper', year: '2020', news_date: '2026-10', news_added_at: '2026-10-01T01:00:00+09:00'};
-const registrationNews = render.recent([...papers, newlyRegistered]);
+const registrationNews = render.recent([...olderPapers, newlyRegistered]);
 assert.ok(registrationNews.includes('Oct. 2026'));
 assert.ok(registrationNews.indexOf(newlyRegistered.title) < registrationNews.indexOf(papers[0].title));
 assert.equal((registrationNews.match(/class="news-item"/g)||[]).length, 3);
