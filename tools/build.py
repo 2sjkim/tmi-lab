@@ -58,7 +58,7 @@ def person(p):
         parts+='<p class="member-appointment">'+career_text(p['appointment'])+'</p>'
         parts+='<ul class="member-background">'+''.join('<li>'+career_text(t)+'</li>' for t in p['background'])+'</ul>'
     for n,t in enumerate(p['details']):
-        if '@' in t:
+        if '@' in t or (n==0 and t=='Staff'):
             continue
         researcher='group' in p
         if researcher and n==0:
