@@ -8,7 +8,7 @@ def page(filename,title,content,active,sub='',source=None):
     nav=''.join(f'<a href="{url}"'+(' aria-current="page"' if name==active else '')+f'>{name}</a>' for name,url in NAV)
     head='' if filename=='index.html' else f'<div class="page-heading"><h1>{title}</h1><p>{sub}</p></div>'
     output=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} | TMI Lab · Yonsei University</title><meta name="description" content="Translational Medical Intelligence Lab at Yonsei University. Medical imaging, trustworthy AI, computational imaging, and clinical translation."><meta name="theme-color" content="#14319C"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="publications.js" defer></script><script src="site.js" defer></script></head><body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="TMI Lab home"><img src="assets/tmi-logo-intelligence.png" alt="TMI"><span>Yonsei University</span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false">☰</button><nav id="navigation" class="nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{head}{content}</main><footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><h3>TMI Lab</h3><p>Translational Medical Intelligence Laboratory<br>Department of Artificial Intelligence · Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div class="footer-links"><a href="people.html">People</a><a href="journal.html">Publications</a><a href="join.html">Join Us</a></div></div><p class="copyright">© 2026 TMI Lab, Yonsei University.</p></div></footer></body></html>'''
-    output=output.replace('href="style.css"','href="style.css?v=20260930-interests"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
+    output=output.replace('href="style.css"','href="style.css?v=20260930-background"').replace('src="site.js"','src="site.js?v=20260930-contactmenu"')
     (OUT/filename).write_text(output,encoding='utf-8')
 def tabs(items,current):return '<nav class="subnav" aria-label="Section navigation">'+''.join(f'<a href="{f}"'+(' aria-current="page"' if f==current else '')+f'>{name}</a>' for name,f in items)+'</nav>'
 PEOPLE=[('Professor','people.html'),('Researchers','researchers.html'),('Alumni','alumni.html')]
@@ -47,12 +47,21 @@ education=D['professor']['education']
 profile=tabs(PEOPLE,'people.html')+f'''<section class="profile"><img src="{D['images']['professor'][0]}" alt="Jongduk Baek"><div><p class="eyebrow">Professor</p><h2>Jongduk Baek, Ph.D.</h2><p class="role">Professor &amp; Chair</p><p>Department of Artificial Intelligence, Yonsei University</p><p>{E(bio)}</p><div class="profile-links"><a class="scholar-link" href="https://scholar.google.com/citations?user=Cj0ntKwAAAAJ&amp;hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar (opens in a new tab)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5-10-5Z"/><path d="M6 11v6c3 3 9 3 12 0v-6M22 9v6"/></svg><span>Google Scholar</span></a><a class="scholar-link" href="mailto:jongdukbaek@yonsei.ac.kr" aria-label="Mail: jongdukbaek@yonsei.ac.kr" title="jongdukbaek@yonsei.ac.kr"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Mail</span></a><a class="scholar-link" href="tel:+82221235737" aria-label="Phone: +82-02-2123-5737" title="+82-02-2123-5737"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.58 2.79.7A2 2 0 0 1 22 16.92z"/></svg><span>Phone</span></a></div></div></section><section class="section career-section"><h2>Experience</h2><ul class="affiliations">'''+''.join(f'<li><strong>{E(a["dates"])}</strong> : {E(a["description"])}</li>' for a in experience)+'</ul></section>'
 profile+='<section class="section career-section"><h2>Education</h2><ul class="affiliations">'+''.join(f'<li><strong>{E(a["dates"])} : {E(a["description"])}</strong><br>'+'<br>'.join(E(x) for x in a["details"])+'</li>' for a in education)+'</ul></section>'
 page('people.html','Professor',profile,'People',sub='Leading innovation in medical imaging, AI, and clinical translation.')
+def career_text(text):
+    label='Postdoctoral Scholar'
+    if text.startswith(label):
+        return '<a class="career-link" href="https://doresearch.stanford.edu/policies/research-policy-handbook/non-faculty-research-appointments/postdoctoral-scholars" target="_blank" rel="noopener noreferrer">'+label+'</a>'+E(text[len(label):])
+    return E(text)
+
 def person(p):
     photo=f'<img src="{p["image"]}" alt="{E(p["name"])}" loading="lazy">' if p['image'] else '<div class="portrait-fallback" aria-hidden="true">'+''.join(w[0] for w in p['name'].split())+'</div>'
     parts=''
+    if 'appointment' in p:
+        parts='<p class="member-appointment">'+career_text(p['appointment'])+'</p>'
+        parts+='<ul class="member-background">'+''.join('<li>'+career_text(t)+'</li>' for t in p['background'])+'</ul>'
     for n,t in enumerate(p['details']):
         researcher='group' in p
-        if researcher and n==0 and p['name'] not in ['Minah Han','Byeongjoon Kim']:
+        if researcher and n==0:
             continue
         text=f'<a href="mailto:{E(t)}">{E(t)}</a>' if '@' in t else E(t)
         if researcher and n==1:
