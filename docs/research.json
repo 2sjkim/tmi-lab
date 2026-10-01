@@ -52,10 +52,9 @@
       "title": "Physics-based System Development",
       "description": "We develop CT imaging systems by jointly designing acquisition geometry, calibration, and image reconstruction. Our work includes carbon-nanotube-based multisource architectures and compact C-arm CT prototypes, with an emphasis on expanding anatomical coverage and making effective use of measured projections. From source–detector alignment and detector correction to volume fusion, we integrate imaging physics and computational methods and evaluate complete imaging pipelines through simulation and prototype experiments.",
       "tasks": [
-        "Multisource and inverse-geometry CT system development",
-        "Geometric calibration and projection-data correction",
-        "Field-of-view extension and multisource volume fusion",
-        "Reconstruction design and prototype validation"
+        "CT reconstruction",
+        "Multi-source CT system development",
+        "Geometric calibration"
       ],
       "papers": [
         {
