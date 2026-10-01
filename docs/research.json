@@ -37,7 +37,7 @@
     },
     {
       "id": "dental-panoramic",
-      "title": "Dental Panoramic",
+      "title": "AI for Dentistry",
       "description": "We develop AI for dental panoramic radiographs, with diagnosis support and report generation as complementary research directions. Our work on lesion detection, anatomically guided lesion synthesis, and report-guided annotation addresses limited labeled data and the need to connect visual findings with clinical language. Building on these methods, we aim to support image-grounded reporting that communicates relevant dental findings consistently and clearly.",
       "tasks": [
         "Dental lesion detection and diagnosis support",
