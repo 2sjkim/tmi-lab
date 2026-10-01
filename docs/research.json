@@ -5,11 +5,11 @@
       "title": "Image Enhancement",
       "description": "We develop computational and learning-based methods to recover informative images from noisy, incomplete, or artifact-corrupted measurements. By combining imaging physics with neural representations and generative priors, we study restoration and reconstruction across projection and image domains. Our goal is to improve image quality while preserving anatomical structure, natural texture, and information relevant to downstream tasks.",
       "tasks": [
-        "CT noise reduction",
-        "Streak or metal artifact reduction",
+        "CT noise and streak/metal artifacts reduction",
         "Super resolution",
-        "Sparse-view and limited-angle reconstruction",
-        "Self-supervised learning"
+        "Diffusion model/implicit neural representation development",
+        "Inverse problem solving",
+        "Dual-domain and self-supervised learning"
       ],
       "papers": [
         {
