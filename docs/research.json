@@ -1,0 +1,200 @@
+{
+  "topics": [
+    {
+      "id": "image-enhancement",
+      "title": "Image Enhancement",
+      "description": "We develop computational and learning-based methods to recover informative images from noisy, incomplete, or artifact-corrupted measurements. By combining imaging physics with neural representations and generative priors, we study restoration and reconstruction across projection and image domains. Our goal is to improve image quality while preserving anatomical structure, natural texture, and information relevant to downstream tasks.",
+      "tasks": [
+        "Artifact and noise reduction",
+        "Super-resolution and deblurring",
+        "Sparse-view and limited-angle reconstruction",
+        "Self-supervised and data-efficient restoration"
+      ],
+      "papers": [
+        {
+          "source_kind": "journal",
+          "source_title": "A Multi-Stage Deep Learning Framework for Half-Detector Truncation and Metal Artifact Reduction in CBCT",
+          "tags": [
+            "CBCT",
+            "Metal & truncation artifacts",
+            "Dual-domain learning"
+          ],
+          "image": "",
+          "source_url": "https://doi.org/10.1002/mp.70604"
+        },
+        {
+          "source_kind": "journal",
+          "source_title": "Dose-aware denoising diffusion model for low-dose CT",
+          "image": "",
+          "tags": [
+            "Low-dose CT",
+            "Dose-aware diffusion",
+            "Noise calibration"
+          ],
+          "source_url": "https://doi.org/10.1088/1361-6560/ade8cc"
+        },
+        {
+          "source_kind": "journal",
+          "source_title": "Continuous representation-based reconstruction for computed tomography",
+          "tags": [
+            "Super-resolution",
+            "Continuous representation",
+            "CT reconstruction"
+          ],
+          "image": "",
+          "source_url": "https://doi.org/10.1002/mp.17849"
+        }
+      ]
+    },
+    {
+      "id": "trustworthy-ai",
+      "title": "Trustworthy AI",
+      "description": "We study how AI models can recognize the limits of their predictions and remain reliable when data, acquisition conditions, or application settings change. Our research uses uncertainty estimation to assess model confidence and guide the use of learned information alongside physical knowledge and measured evidence. We aim to develop adaptable AI methods that preserve meaningful structures, reduce unsupported predictions, and support reliable use beyond the training distribution.",
+      "tasks": [
+        "Uncertainty quantification and reliability assessment",
+        "Robustness under distribution shifts",
+        "Uncertainty-guided model and prior fusion",
+        "Anatomical fidelity and hallucination assessment"
+      ],
+      "papers": []
+    },
+    {
+      "id": "dental-panoramic",
+      "title": "Dental Panoramic",
+      "description": "We develop AI for dental panoramic radiographs, with diagnosis support and report generation as complementary research directions. Our work on lesion detection, anatomically guided lesion synthesis, and report-guided annotation addresses limited labeled data and the need to connect visual findings with clinical language. Building on these methods, we aim to support image-grounded reporting that communicates relevant dental findings consistently and clearly.",
+      "tasks": [
+        "Dental lesion detection and diagnosis support",
+        "Image-grounded report generation",
+        "Report understanding and open-vocabulary pseudo-labeling",
+        "Anatomically guided lesion synthesis and data augmentation"
+      ],
+      "papers": [
+        {
+          "source_kind": "conference",
+          "source_title": "Two-Stage Cascaded Caries Detection on Panoramic X-Ray via Slicing-Aided Hyper Inference",
+          "tags": [
+            "Panoramic X-ray",
+            "Caries detection",
+            "Slicing-aided inference"
+          ],
+          "image": ""
+        },
+        {
+          "source_kind": "conference",
+          "source_title": "SynthCaries: Dental Caries Generation on Panoramic Radiograph using Diffusion",
+          "authors": "Eunmin Lee, Yoonha Eo, Jongduk Baek",
+          "image": "",
+          "tags": [
+            "Panoramic X-ray",
+            "Caries synthesis",
+            "Diffusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physics-based-system-development",
+      "title": "Physics-based System Development",
+      "description": "We develop CT imaging systems by jointly designing acquisition geometry, calibration, and image reconstruction. Our work includes carbon-nanotube-based multisource architectures and compact C-arm CT prototypes, with an emphasis on expanding anatomical coverage and making effective use of measured projections. From source–detector alignment and detector correction to volume fusion, we integrate imaging physics and computational methods and evaluate complete imaging pipelines through simulation and prototype experiments.",
+      "tasks": [
+        "Multisource and inverse-geometry CT system development",
+        "Geometric calibration and projection-data correction",
+        "Field-of-view extension and multisource volume fusion",
+        "Reconstruction design and prototype validation"
+      ],
+      "papers": [
+        {
+          "source_kind": "conference",
+          "source_title": "Multisource C-arm CT: Initial Results with a 2 x 2 Carbon Nanotube Source Array",
+          "tags": [
+            "Multisource C-arm CT",
+            "CNT source array",
+            "Field-of-view extension"
+          ],
+          "image": "",
+          "authors": "Hojin Jung, Jungsu Kang, Youngkwang Kim, Youngjun Roh, Jongduk Baek"
+        },
+        {
+          "source_kind": "journal",
+          "source_title": "Carbon nanotube-based multiple source C-arm CT system: feasibility study with prototype system",
+          "tags": [
+            "CT prototype",
+            "Geometric calibration",
+            "Reconstruction"
+          ],
+          "image": "",
+          "source_url": "https://doi.org/10.1364/oe.503421"
+        },
+        {
+          "source_kind": "journal",
+          "source_title": "Geometry calibration and image reconstruction for carbon-nanotube-based multisource and multidetector CT",
+          "tags": [
+            "Multisource CT",
+            "Multidetector geometry",
+            "System calibration"
+          ],
+          "image": "",
+          "source_url": "https://doi.org/10.1088/1361-6560/ac16c1"
+        }
+      ]
+    },
+    {
+      "id": "image-quality-evaluation",
+      "title": "Image Quality Evaluation",
+      "description": "We quantify image quality through physical measurements, task performance, and human perception. Our methods characterize spatial resolution and noise using the modulation transfer function (MTF) and noise power spectrum (NPS), while model observers assess how well images support signal detection and discrimination. We also investigate learning-based, no-reference quality assessment aligned with radiologist judgments, providing complementary tools to evaluate imaging systems, acquisition protocols, and reconstruction or enhancement algorithms.",
+      "tasks": [
+        "Directional and full 3D MTF estimation",
+        "Local NPS estimation and noise characterization",
+        "Model observers and task-based image quality assessment",
+        "Human perception and no-reference quality assessment"
+      ],
+      "papers": [
+        {
+          "source_kind": "conference",
+          "source_title": "Emulating Human Perception of Low-Dose CT Image Quality via Deep Generative Models",
+          "tags": [
+            "Perceptual image quality",
+            "Generative models",
+            "No-reference assessment"
+          ],
+          "image": "",
+          "url": "https://aapm.confex.com/aapm/2025am/meetingapp.cgi/Paper/15284"
+        },
+        {
+          "source_kind": "journal",
+          "source_title": "Generalizability of convolutional neural network-based model observer in breast tomosynthesis across volume glandular fractions and signal sizes",
+          "tags": [
+            "Model observer",
+            "Signal detectability",
+            "Generalizability"
+          ],
+          "image": "",
+          "source_url": "https://doi.org/10.1002/mp.17725"
+        },
+        {
+          "source_kind": "journal",
+          "source_title": "Direct estimation of the noise power spectrum from patient data to generate synthesized CT noise for denoising network training",
+          "tags": [
+            "Noise power spectrum",
+            "Patient-specific noise",
+            "Noise synthesis"
+          ],
+          "image": "",
+          "source_url": "https://doi.org/10.1002/mp.16963"
+        },
+        {
+          "source_kind": "journal",
+          "source_title": "Full 3-D modulation transfer function estimation of tomosynthesis system using modified Richardson-Lucy deconvolution",
+          "tags": [
+            "3D MTF",
+            "Spatial resolution",
+            "Tomosynthesis"
+          ],
+          "image": "",
+          "venue": "Medical Physics, 2024",
+          "source_url": "https://doi.org/10.1002/mp.16843"
+        }
+      ]
+    }
+  ]
+}
