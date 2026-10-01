@@ -21,28 +21,6 @@
           ],
           "image": "",
           "source_url": "https://doi.org/10.1002/mp.70604"
-        },
-        {
-          "source_kind": "journal",
-          "source_title": "Dose-aware denoising diffusion model for low-dose CT",
-          "image": "",
-          "tags": [
-            "Low-dose CT",
-            "Dose-aware diffusion",
-            "Noise calibration"
-          ],
-          "source_url": "https://doi.org/10.1088/1361-6560/ade8cc"
-        },
-        {
-          "source_kind": "journal",
-          "source_title": "Continuous representation-based reconstruction for computed tomography",
-          "tags": [
-            "Super-resolution",
-            "Continuous representation",
-            "CT reconstruction"
-          ],
-          "image": "",
-          "source_url": "https://doi.org/10.1002/mp.17849"
         }
       ]
     },
@@ -68,29 +46,7 @@
         "Report understanding and open-vocabulary pseudo-labeling",
         "Anatomically guided lesion synthesis and data augmentation"
       ],
-      "papers": [
-        {
-          "source_kind": "conference",
-          "source_title": "Two-Stage Cascaded Caries Detection on Panoramic X-Ray via Slicing-Aided Hyper Inference",
-          "tags": [
-            "Panoramic X-ray",
-            "Caries detection",
-            "Slicing-aided inference"
-          ],
-          "image": ""
-        },
-        {
-          "source_kind": "conference",
-          "source_title": "SynthCaries: Dental Caries Generation on Panoramic Radiograph using Diffusion",
-          "authors": "Eunmin Lee, Yoonha Eo, Jongduk Baek",
-          "image": "",
-          "tags": [
-            "Panoramic X-ray",
-            "Caries synthesis",
-            "Diffusion"
-          ]
-        }
-      ]
+      "papers": []
     },
     {
       "id": "physics-based-system-development",
@@ -104,17 +60,6 @@
       ],
       "papers": [
         {
-          "source_kind": "conference",
-          "source_title": "Multisource C-arm CT: Initial Results with a 2 x 2 Carbon Nanotube Source Array",
-          "tags": [
-            "Multisource C-arm CT",
-            "CNT source array",
-            "Field-of-view extension"
-          ],
-          "image": "",
-          "authors": "Hojin Jung, Jungsu Kang, Youngkwang Kim, Youngjun Roh, Jongduk Baek"
-        },
-        {
           "source_kind": "journal",
           "source_title": "Carbon nanotube-based multiple source C-arm CT system: feasibility study with prototype system",
           "tags": [
@@ -124,17 +69,6 @@
           ],
           "image": "",
           "source_url": "https://doi.org/10.1364/oe.503421"
-        },
-        {
-          "source_kind": "journal",
-          "source_title": "Geometry calibration and image reconstruction for carbon-nanotube-based multisource and multidetector CT",
-          "tags": [
-            "Multisource CT",
-            "Multidetector geometry",
-            "System calibration"
-          ],
-          "image": "",
-          "source_url": "https://doi.org/10.1088/1361-6560/ac16c1"
         }
       ]
     },
@@ -150,17 +84,6 @@
       ],
       "papers": [
         {
-          "source_kind": "conference",
-          "source_title": "Emulating Human Perception of Low-Dose CT Image Quality via Deep Generative Models",
-          "tags": [
-            "Perceptual image quality",
-            "Generative models",
-            "No-reference assessment"
-          ],
-          "image": "",
-          "url": "https://aapm.confex.com/aapm/2025am/meetingapp.cgi/Paper/15284"
-        },
-        {
           "source_kind": "journal",
           "source_title": "Generalizability of convolutional neural network-based model observer in breast tomosynthesis across volume glandular fractions and signal sizes",
           "tags": [
@@ -170,29 +93,6 @@
           ],
           "image": "",
           "source_url": "https://doi.org/10.1002/mp.17725"
-        },
-        {
-          "source_kind": "journal",
-          "source_title": "Direct estimation of the noise power spectrum from patient data to generate synthesized CT noise for denoising network training",
-          "tags": [
-            "Noise power spectrum",
-            "Patient-specific noise",
-            "Noise synthesis"
-          ],
-          "image": "",
-          "source_url": "https://doi.org/10.1002/mp.16963"
-        },
-        {
-          "source_kind": "journal",
-          "source_title": "Full 3-D modulation transfer function estimation of tomosynthesis system using modified Richardson-Lucy deconvolution",
-          "tags": [
-            "3D MTF",
-            "Spatial resolution",
-            "Tomosynthesis"
-          ],
-          "image": "",
-          "venue": "Medical Physics, 2024",
-          "source_url": "https://doi.org/10.1002/mp.16843"
         }
       ]
     }
