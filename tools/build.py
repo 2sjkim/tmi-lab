@@ -64,7 +64,7 @@ def research_paper_card(spec):
     title = E(paper['title'])
     url = paper.get('url', '')
     is_conference = paper.get('source_kind') == 'conference'
-    if not is_conference and re.match(r'^https?://', url):
+    if re.match(r'^https?://', url) and (not is_conference or spec.get('url')):
         title = f'<a href="{E(url, quote=True)}" target="_blank" rel="noopener noreferrer">{title}</a>'
     image = paper.get('image', '')
     visual = f'<img src="{E(image, quote=True)}" alt="{E(paper["title"], quote=True)}" loading="lazy">' if image else '<div class="research-paper-placeholder" aria-hidden="true"></div>'
