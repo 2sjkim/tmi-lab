@@ -5,10 +5,11 @@
       "title": "Image Enhancement",
       "description": "We develop computational and learning-based methods to recover informative images from noisy, incomplete, or artifact-corrupted measurements. By combining imaging physics with neural representations and generative priors, we study restoration and reconstruction across projection and image domains. Our goal is to improve image quality while preserving anatomical structure, natural texture, and information relevant to downstream tasks.",
       "tasks": [
-        "Artifact and noise reduction",
-        "Super-resolution and deblurring",
+        "CT noise reduction",
+        "Streak or metal artifact reduction",
+        "Super resolution",
         "Sparse-view and limited-angle reconstruction",
-        "Self-supervised and data-efficient restoration"
+        "Self-supervised learning"
       ],
       "papers": [
         {
@@ -19,7 +20,7 @@
             "Metal & truncation artifacts",
             "Dual-domain learning"
           ],
-          "image": "",
+          "image": "assets/selected_image_enhancement.png",
           "source_url": "https://doi.org/10.1002/mp.70604"
         }
       ]
@@ -60,15 +61,15 @@
       ],
       "papers": [
         {
-          "source_kind": "journal",
-          "source_title": "Carbon nanotube-based multiple source C-arm CT system: feasibility study with prototype system",
+          "source_kind": "conference",
+          "source_title": "Multisource C-arm CT: Initial Results with a 2 x 2 Carbon Nanotube Source Array",
+          "authors": "Hojin Jung, Jungsu Kang, Youngkwang Kim, Youngjun Roh, Jongduk Baek",
+          "venue": "CT Meeting 2026, Oral Presentation",
           "tags": [
-            "CT prototype",
-            "Geometric calibration",
-            "Reconstruction"
+            "C-arm CT system",
+            "Multi-source CT"
           ],
-          "image": "",
-          "source_url": "https://doi.org/10.1364/oe.503421"
+          "image": ""
         }
       ]
     },
