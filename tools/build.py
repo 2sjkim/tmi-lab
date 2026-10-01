@@ -8,7 +8,7 @@ def page(filename,title,content,active,sub='',source=None):
     nav=''.join(f'<a href="{url}"'+(' aria-current="page"' if name==active else '')+f'>{name}</a>' for name,url in NAV)
     head='' if filename=='index.html' else f'<div class="page-heading"><h1>{title}</h1>'+ (f'<p>{sub}</p>' if sub else '')+'</div>'
     output=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} | TMI Lab · Yonsei University</title><meta name="description" content="Translational Medical Intelligence Lab at Yonsei University. Medical imaging, trustworthy AI, computational imaging, and clinical translation."><meta name="theme-color" content="#14319C"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="publications.js" defer></script><script src="site.js" defer></script></head><body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="TMI Lab home"><img src="assets/tmi-logo-intelligence.png" alt="TMI"><span class="university-brand"><img class="university-logo" src="assets/yonsei-wordmark.svg" alt="Yonsei University" width="148" height="44"></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false">☰</button><nav id="navigation" class="nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{head}{content}</main><footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><h3>TMI Lab</h3><p>Translational Medical Intelligence Laboratory<br>Department of Artificial Intelligence · Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div></div><p class="copyright">© 2026 TMI Lab, Yonsei University.</p></div></footer></body></html>'''
-    output=output.replace('href="style.css"','href="style.css?v=20261001-join-recruitment"').replace('src="publications.js"','src="publications.js?v=20260930-news-five"').replace('src="site.js"','src="site.js?v=20260930-news-five"')
+    output=output.replace('href="style.css"','href="style.css?v=20261001-research-topics"').replace('src="publications.js"','src="publications.js?v=20260930-news-five"').replace('src="site.js"','src="site.js?v=20260930-news-five"')
     if filename == "index.html":
         output = output.replace('<main id="main" class="wrap">', '<main id="main" class="home-main">')
     (OUT/filename).write_text(output,encoding='utf-8')
@@ -53,7 +53,34 @@ home+='<section class="section"><div class="section-heading"><h2>Recent News</h2
 home+='<section class="section"><div class="section-heading"><h2>Our Approach</h2><a href="research.html">Explore our research</a></div>'+area_grid()+'</section>'
 home+='''<section class="section contact"><div><h2>Contact</h2><h3>Translational Medical Intelligence Lab</h3><p>Department of Artificial Intelligence<br>Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div><div><h2>Join TMI</h2><p><br>We value strong fundamentals, curiosity, and a collaborative attitude.</p><a class="button" href="join.html">Join our research</a></div></section>'''
 page('index.html','Home',home,'Home')
-page('research.html','Research','<section class="section"><p class="eyebrow">Our approach</p><h2>From imaging systems to clinical impact.</h2><p>TMI Lab connects real-world imaging, reliable AI, and clinical translation to create meaningful impact in healthcare.</p>'+area_grid(True)+'</section>','Research',sub='Advancing medical imaging through AI, physics, and clinical translation.')
+def research_paper_card(spec):
+    paper = dict(spec)
+    if spec.get('source_kind'):
+        matches = [p for p in D[spec['source_kind']] if (spec.get('source_url') and p.get('url') == spec['source_url']) or p['title'] == spec['source_title']]
+        if len(matches) != 1:
+            print('Skipping unavailable Research paper: ' + spec['source_title'])
+            return ''
+        paper = {**matches[0], **spec}
+    title = E(paper['title'])
+    url = paper.get('url', '')
+    if re.match(r'^https?://', url):
+        title = f'<a href="{E(url, quote=True)}" target="_blank" rel="noopener noreferrer">{title}</a>'
+    image = paper.get('image', '')
+    visual = f'<img src="{E(image, quote=True)}" alt="{E(paper["title"], quote=True)}" loading="lazy">' if image else '<div class="research-paper-placeholder" aria-hidden="true"></div>'
+    authors = f'<p class="research-paper-authors">{E(paper["authors"])}</p>' if paper.get('authors') else ''
+    tags = ''.join('<li>#' + E(tag) + '</li>' for tag in paper.get('tags', []))
+    return f'<article class="research-paper-card"><div class="research-paper-visual">{visual}</div><div class="research-paper-info"><p class="research-paper-venue">{E(paper["venue"])}</p><h4>{title}</h4>{authors}<ul class="research-paper-tags" aria-label="Research keywords">{tags}</ul></div></article>'
+
+research_data = json.loads((OUT/'research.json').read_text(encoding='utf-8'))
+research = '<div class="research-topics">'
+for n, topic in enumerate(research_data['topics'], 1):
+    tasks = ''.join('<li>' + E(task) + '</li>' for task in topic['tasks'])
+    cards = ''.join(research_paper_card(p) for p in topic['papers'])
+    selected = '<h3 class="research-label">Selected papers</h3><div class="research-paper-list">' + cards + '</div>' if cards else ''
+    topic_id = E(topic['id'], quote=True)
+    research += f'<section class="research-topic" id="{topic_id}" aria-labelledby="{topic_id}-title"><div class="research-topic-heading"><span class="research-topic-number">{n:02}</span><h2 id="{topic_id}-title">{E(topic["title"])}</h2></div><p class="research-topic-description">{E(topic["description"])}</p><h3 class="research-label">Research tasks</h3><ul class="research-task-list">{tasks}</ul>{selected}</section>'
+research += '</div>'
+page('research.html', 'Research', research, 'Research')
 bio=D['professor']['bio']
 experience=D['professor']['experience']
 education=D['professor']['education']
