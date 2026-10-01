@@ -30,9 +30,7 @@
       "title": "Trustworthy AI",
       "description": "We study how AI models can recognize the limits of their predictions and remain reliable when data, acquisition conditions, or application settings change. Our research uses uncertainty estimation to assess model confidence and guide the use of learned information alongside physical knowledge and measured evidence. We aim to develop adaptable AI methods that preserve meaningful structures, reduce unsupported predictions, and support reliable use beyond the training distribution.",
       "tasks": [
-        "Uncertainty quantification and reliability assessment",
-        "Robustness under distribution shifts",
-        "Uncertainty-guided model and prior fusion",
+        "Uncertainty quantification and reliability evaluation",
         "Anatomical fidelity and hallucination assessment"
       ],
       "papers": []
