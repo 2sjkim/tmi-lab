@@ -8,7 +8,7 @@ def page(filename,title,content,active,sub='',source=None):
     nav=''.join(f'<a href="{url}"'+(' aria-current="page"' if name==active else '')+f'>{name}</a>' for name,url in NAV)
     head='' if filename=='index.html' else f'<div class="page-heading"><h1>{title}</h1>'+ (f'<p>{sub}</p>' if sub else '')+'</div>'
     output=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{title} | TMI Lab · Yonsei University</title><meta name="description" content="Translational Medical Intelligence Lab at Yonsei University. Medical imaging, trustworthy AI, computational imaging, and clinical translation."><meta name="theme-color" content="#14319C"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="style.css"><script src="publications.js" defer></script><script src="site.js" defer></script></head><body><a class="skip" href="#main">Skip to main content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="TMI Lab home"><img src="assets/tmi-logo-intelligence.png" alt="TMI"><span class="university-brand"><img class="university-logo" src="assets/yonsei-wordmark.svg" alt="Yonsei University" width="148" height="44"></span></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="navigation" aria-expanded="false">☰</button><nav id="navigation" class="nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{head}{content}</main><footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><h3>TMI Lab</h3><p>Translational Medical Intelligence Laboratory<br>Department of Artificial Intelligence · Yonsei University</p><a href="mailto:jongdukbaek@yonsei.ac.kr">jongdukbaek@yonsei.ac.kr</a></div></div><p class="copyright">© 2026 TMI Lab, Yonsei University.</p></div></footer></body></html>'''
-    output=output.replace('href="style.css"','href="style.css?v=20261001-research-single-paper"').replace('src="publications.js"','src="publications.js?v=20260930-news-five"').replace('src="site.js"','src="site.js?v=20260930-news-five"')
+    output=output.replace('href="style.css"','href="style.css?v=20261001-research-figure"').replace('src="publications.js"','src="publications.js?v=20260930-news-five"').replace('src="site.js"','src="site.js?v=20260930-news-five"')
     if filename == "index.html":
         output = output.replace('<main id="main" class="wrap">', '<main id="main" class="home-main">')
     (OUT/filename).write_text(output,encoding='utf-8')
@@ -63,13 +63,16 @@ def research_paper_card(spec):
         paper = {**matches[0], **spec}
     title = E(paper['title'])
     url = paper.get('url', '')
-    if re.match(r'^https?://', url):
+    is_conference = paper.get('source_kind') == 'conference'
+    if not is_conference and re.match(r'^https?://', url):
         title = f'<a href="{E(url, quote=True)}" target="_blank" rel="noopener noreferrer">{title}</a>'
     image = paper.get('image', '')
     visual = f'<img src="{E(image, quote=True)}" alt="{E(paper["title"], quote=True)}" loading="lazy">' if image else '<div class="research-paper-placeholder" aria-hidden="true"></div>'
+    visual = '' if is_conference else f'<div class="research-paper-visual">{visual}</div>'
+    card_class = 'research-paper-card research-paper-text-only' if is_conference else 'research-paper-card'
     authors = f'<p class="research-paper-authors">{E(paper["authors"])}</p>' if paper.get('authors') else ''
     tags = ''.join('<li>#' + E(tag) + '</li>' for tag in paper.get('tags', []))
-    return f'<article class="research-paper-card"><div class="research-paper-visual">{visual}</div><div class="research-paper-info"><p class="research-paper-venue">{E(paper["venue"])}</p><h4>{title}</h4>{authors}<ul class="research-paper-tags" aria-label="Research keywords">{tags}</ul></div></article>'
+    return f'<article class="{card_class}">{visual}<div class="research-paper-info"><p class="research-paper-venue">{E(paper["venue"])}</p><h4>{title}</h4>{authors}<ul class="research-paper-tags" aria-label="Research keywords">{tags}</ul></div></article>'
 
 research_data = json.loads((OUT/'research.json').read_text(encoding='utf-8'))
 research = '<div class="research-topics">'
