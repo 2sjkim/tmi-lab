@@ -44,7 +44,12 @@
       return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>' + body + '</p></article>';
     }
     const venue = paper.journal_name || paper.venue.split(',')[0];
-    return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>The paper &quot;<strong>' + escape(paper.title) + '</strong>&quot; is accepted to <strong>' + escape(venue) + '</strong>.</p></article>';
+    let title = '<strong>' + escape(paper.title) + '</strong>';
+    const url = safeUrl(paper.url);
+    if (url && paper.title !== 'Low-Dose CT Denoising Using a Diffusion Prior via Score Distillation Sampling') {
+      title = '<a href="' + escape(url) + '" target="_blank" rel="noopener noreferrer">' + title + '</a>';
+    }
+    return '<article class="news-item"><div class="news-date">' + dateMarkup + '</div><p>The paper &quot;' + title + '&quot; is accepted to <strong>' + escape(venue) + '</strong>.</p></article>';
   }
   function recent(records, additionalNews = []) {
     const rank = paper => paper.news_added_at || (paper.news_date ? paper.news_date.slice(0, 7) + '-01T00:00:00+09:00' : '');
