@@ -45,7 +45,7 @@ assert.ok(combined.includes('href="https://example.org/award"'));
 assert.equal((render.recent([], [custom]).match(/class="news-item"/g)||[]).length,1);
 console.log('PASS: custom linked announcements merge with journals within the five-item limit.');
 
-assert.ok(render.news(fixture).includes('<a href="https://example.org/paper" target="_blank" rel="noopener noreferrer"><strong>New paper &lt;test&gt;</strong></a>'));
+assert.match(render.news(fixture), /<a(?: class="news-paper-link")? href="https:\/\/example\.org\/paper" target="_blank" rel="noopener noreferrer"><strong>New paper &lt;test&gt;<\/strong><\/a>/);
 assert.ok(!render.news({...fixture, url: 'javascript:alert(1)'}).includes('href='));
 assert.ok(!render.news({...fixture, url: undefined}).includes('href='));
 assert.ok(!render.news({...fixture, title: 'Low-Dose CT Denoising Using a Diffusion Prior via Score Distillation Sampling'}).includes('href='));
